@@ -4,9 +4,9 @@
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://programer.wang/"/>
+  <link href="http://servercoder.com/"/>
   <updated>2017-01-24T01:45:21.000Z</updated>
-  <id>http://programer.wang/</id>
+  <id>http://servercoder.com/</id>
   
   <author>
     <name>码龙</name>
@@ -17,8 +17,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="http://programer.wang/2017/01/24/hello-world/"/>
-    <id>http://programer.wang/2017/01/24/hello-world/</id>
+    <link href="http://servercoder.com/2017/01/24/hello-world/"/>
+    <id>http://servercoder.com/2017/01/24/hello-world/</id>
     <published>2017-01-24T01:45:21.000Z</published>
     <updated>2017-01-24T01:45:21.000Z</updated>
     
@@ -32,7 +32,7 @@
 <h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
 <hr>
-<p>本文链接：<a href="http://programer.wang/2017/01/24/hello-world/">http://programer.wang/2017/01/24/hello-world/</a></p>
+<p>本文链接：<a href="http://servercoder.com/2017/01/24/hello-world/">http://servercoder.com/2017/01/24/hello-world/</a></p>
 ]]></content>
     
     <summary type="html">
