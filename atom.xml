@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://servercoder.com/"/>
-  <updated>2017-01-24T01:45:21.000Z</updated>
+  <updated>2017-12-05T06:15:19.046Z</updated>
   <id>http://servercoder.com/</id>
   
   <author>
@@ -16,28 +16,44 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Hello World</title>
-    <link href="http://servercoder.com/2017/01/24/hello-world/"/>
-    <id>http://servercoder.com/2017/01/24/hello-world/</id>
-    <published>2017-01-24T01:45:21.000Z</published>
-    <updated>2017-01-24T01:45:21.000Z</updated>
+    <title>��ƽ̨����ʱ������Ϊʲô����װhttp������sdk</title>
+    <link href="http://servercoder.com/2017/12/05/sdk-without-http/"/>
+    <id>http://servercoder.com/2017/12/05/sdk-without-http/</id>
+    <published>2017-12-05T06:15:19.046Z</published>
+    <updated>2017-12-05T06:15:19.046Z</updated>
     
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+    <content type="html"><![CDATA[<h2 id="ΪʲoҪ��װsdk"><a href="#ΪʲoҪ��װsdk" class="headerlink" title="ΪʲôҪ��װsdk"></a>ΪʲôҪ��װsdk</h2><p>���źܶ࿪���ŶӶ�ͬʱ��Ҫ��������ƽ̨�Ŀͻ��ˣ���android��ios��������pc���ͻ��ˡ����ǣ���ô�����ܸ���ͬһ��ҵ�����룬���˺ܶ࿪�����۵Ļ��⡣</p>
+<p>���磬������Ƭ�������������ĵĴ����㷨һ������c++д�ģ����˼���Ч�ʸ�֮�⣬�㷨��ʵ��Ҳ�϶��Ǻܸ��ӵģ�������ÿ���ͻ��˶��ø��Ա�������ʵ��һ�ס����������ĺô��У�</p>
+<ol>
+<li>���������٣�����Ч�ʸߡ�</li>
+<li>�����˲�ͬ����ʵ��ʱ������ͬbug�Ŀ��ܡ�</li>
+<li>����������ͬ���Կ�����Ա����ˮƽ��һ�£����ָ���bug�Ŀ��ܡ�</li>
+<li>����ά�������㡣</li>
+<li>���Ը����㡣</li>
+</ol>
+<p>ͬ���أ���������һ���µ�ͨ�ſ�ʱ����grpc�����ṩ�˲�ͬ���Ե�ʵ�֣�java��go��c++������ÿ�����Զ�����grpc��װһ��ͨ���߼�����ζ��ÿ�����Ե��˶�Ҫ�˽�grpc��ʹ�ã�����Ҫ����һ�㣬���Ƕ������ĵ�������һ��Ҫ�������Ĵ��룬�Ǻķѵ�ʱ���͸����ˡ�����˵����ά����ʱ�䡣</p>
+<h2 id="ʲoʱ��Ҫ��װsdk"><a href="#ʲoʱ��Ҫ��װsdk" class="headerlink" title="ʲôʱ��Ҫ��װsdk"></a>ʲôʱ��Ҫ��װsdk</h2><p>���ԣ����ǵ���ʲôʱ���÷�װsdk�أ�����Ϊ�������漸�������������ܾ͵ÿ��Ƿ�װsdk�ˡ�</p>
+<ol>
+<li>ҵ���߼����ӣ����Ҷ�ƽ̨�ͻ��˶���Ҫ��</li>
+<li>���ӵ��㷨��</li>
+<li>����ͨ���м����������������ᵽ��grpc,����һЩ����tcp���ݵķ�װ�����͡�������</li>
+<li>������Ŀ���ܻ�ʹ�õĹ���ģ�顣</li>
+</ol>
+<h2 id="http�������Ƿ�Ҫ��װ��"><a href="#http�������Ƿ�Ҫ��װ��" class="headerlink" title="http�������Ƿ�Ҫ��װ��"></a>http�������Ƿ�Ҫ��װ��</h2><p>���ǳ�˵��һ�仰���ܹ����Ʋ�������ҵ�񡣳�Ȼ�����Ǻܶ�ʱ���ļ���ѡ�Ͷ�����Ȩ�⣬Ȩ�⿪���ɱ���Ȩ����Ʒ״̬��Ȩ�����п�����Ա��ˮƽ�ȵȡ��е�ʱ���������⻹��Ҫ����������<br>����˵����ô��ʲôʱ��Ҫ��װsdk���Ƕ����ṩhttp�ӿڵķ������б�Ҫ��װsdk����<br>����Ϊ����ֻ�Ƿ�װhttp����������Ӧ��������������ҵ���߼�ʱ����Ҫ�Բ�����ԭ�����£�</p>
+<ol>
+<li>������http����������Ӧ��װ��sdk�����ǿ����Ƿ������˿���Ч�ʡ�����ȷʵֻ��һ���������뷢��http��������Ӧ����Ϊ�ˣ���ҪΪ�����ͻ��˷�װ�ӿڣ��Ա��ܵ���sdk�����磬c#��Ҫ��װ�й�c++�����ṩc������ʽ�ؽӿڣ�Ȼ��c#����invoke�ķ�ʽ���á����磬java��andriod��������Ҫ��װjni�ӿڡ��������Ծ͸���˵�ˣ��ܼ��ӵ���c�ӿڣ�����Ҫ�򵥵ķ�װ�����ǣ���������ÿ����һ���ӿڶ���Ҫ�޸�sdk����Ҫ�޸ĵ��ýӿڡ�����������Ч�����������˿��ܻ�˵��sdk�з���http��������Ӧ�Ĵ��븴���ˣ��Ҽ����˿�����ά���ɱ��ء�</li>
+<li>����Ҫ�����ˣ��������Զ��зǳ������Ҿ���������֤��http client api��Ҳ����˵�������߼��������ԣ�����c++������Ҫ�����Ŀ������������Ǿ���ʵ���ȶ���http���á�</li>
+<li>����http������˵������������Ա��ˮƽ���еĻ������ǲ�������ҪƵ���޸Ľӿڣ��������������ӿڡ������������ӿڶ��ԣ����ǲ�û�н�ʡʲô�����ɱ���</li>
+<li>���ܱ�֤����װ�Ľӿ�һ���Խ���ô��</li>
+</ol>
+<h2 id="��װsdk���ܴ���������"><a href="#��װsdk���ܴ���������" class="headerlink" title="��װsdk���ܴ���������"></a>��װsdk���ܴ���������</h2><p>��˵Զһ�㣬������˵Ϊ�����Ӹ��ã����߿���Ч�ʾ�һ��Ҫ��װsdk�������Ƿ����˿�����Ա������������Ŀ������ͬһ��sdk��һ����sdk�������⣬����ζ������������Ŀ����Ҫ��������������<br>����ʱ���͸ÿ��Ƿ������ˣ�������sdk�����߼���һ�������ķ������棬����ֻ��Ҫ���¸÷������У�����������Ŀ���Ƕ��߼���ʵ���˽���򽣵���ƪ����<a href="https://mp.weixin.qq.com/s/mjWCuYYbFs16esvkwZ-LKw" target="_blank" rel="external">��СС�Ĺ����⣬���������ϣ���ʹ���𣿡�</a>�����ҿ��Թ�ע�¡�</p>
 <hr>
-<p>本文链接：<a href="http://servercoder.com/2017/01/24/hello-world/">http://servercoder.com/2017/01/24/hello-world/</a></p>
+<p>本文链接：<a href="http://servercoder.com/2017/12/05/sdk-without-http/">http://servercoder.com/2017/12/05/sdk-without-http/</a></p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+      &lt;h2 id=&quot;ΪʲoҪ��װsdk&quot;&gt;&lt;a href=&quot;#ΪʲoҪ��װsdk&quot; class=&quot;headerlink&quot; title=&quot;ΪʲôҪ��װsdk&quot;&gt;&lt;/a&gt;ΪʲôҪ��װsdk&lt;/h2&gt;&lt;p&gt;���źܶ࿪���ŶӶ�ͬʱ��Ҫ��������ƽ̨�Ŀͻ��ˣ���an
     
     </summary>
     
