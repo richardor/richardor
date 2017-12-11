@@ -2,9 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://servercoder.com/2017/12/05/sdk-without-http/</loc>
+    <loc>http://servercoder.com/2017/12/11/sdk-without-http/</loc>
     
-    <lastmod>2017-12-05T06:44:55.189Z</lastmod>
+    <lastmod>2017-12-11T11:09:42.984Z</lastmod>
     
   </url>
   
@@ -16,14 +16,14 @@
   </url>
   
   <url>
-    <loc>http://servercoder.com/tags/index.html</loc>
+    <loc>http://servercoder.com/categories/index.html</loc>
     
     <lastmod>2017-08-14T01:13:57.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://servercoder.com/categories/index.html</loc>
+    <loc>http://servercoder.com/tags/index.html</loc>
     
     <lastmod>2017-08-14T01:13:57.000Z</lastmod>
     
