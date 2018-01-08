@@ -86,17 +86,13 @@
 
 
 
-<meta name="description" content="为什么要封装sdk相信很多开发团队都同时需要开发各种平台的客户端，有android、ios，甚至是pc版客户端。于是，怎么尽可能复用同一套业务代码，成了很多开发讨论的话题。 比如，开发照片处理软件，核心的处理算法一定都是c++写的，除了计算效率高之外，算法的实现也肯定是很复杂的，不可能每个客户端都用各自编程语言实现一套。这样带来的好处有：  代码量更少，开发效率高。 减少了不同语言实现时产生相同b">
-<meta property="og:type" content="article">
-<meta property="og:title" content="跨平台开发时，我们为什么不封装http请求的sdk">
-<meta property="og:url" content="http://servercoder.com/2017/12/11/sdk-without-http/index.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="后台服务开发">
+<meta property="og:url" content="http://servercoder.com/archives/2018/01/index.html">
 <meta property="og:site_name" content="后台服务开发">
-<meta property="og:description" content="为什么要封装sdk相信很多开发团队都同时需要开发各种平台的客户端，有android、ios，甚至是pc版客户端。于是，怎么尽可能复用同一套业务代码，成了很多开发讨论的话题。 比如，开发照片处理软件，核心的处理算法一定都是c++写的，除了计算效率高之外，算法的实现也肯定是很复杂的，不可能每个客户端都用各自编程语言实现一套。这样带来的好处有：  代码量更少，开发效率高。 减少了不同语言实现时产生相同b">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-11T11:09:42.984Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="跨平台开发时，我们为什么不封装http请求的sdk">
-<meta name="twitter:description" content="为什么要封装sdk相信很多开发团队都同时需要开发各种平台的客户端，有android、ios，甚至是pc版客户端。于是，怎么尽可能复用同一套业务代码，成了很多开发讨论的话题。 比如，开发照片处理软件，核心的处理算法一定都是c++写的，除了计算效率高之外，算法的实现也肯定是很复杂的，不可能每个客户端都用各自编程语言实现一套。这样带来的好处有：  代码量更少，开发效率高。 减少了不同语言实现时产生相同b">
+<meta name="twitter:title" content="后台服务开发">
 
 
 
@@ -114,7 +110,7 @@
   };
 </script>
 
-  <title> 跨平台开发时，我们为什么不封装http请求的sdk | 后台服务开发 </title>
+  <title> 归档 | 后台服务开发 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -135,7 +131,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left page-post-detail ">
+  <div class="container one-collumn sidebar-position-left  page-archive  ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -266,153 +262,66 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
+  <section id="posts" class="posts-collapse">
+    <span class="archive-move-on"></span>
+
+    <span class="archive-page-counter">
+      
+      
+      
+        
+      
+      嗯..! 目前共计 2 篇日志。 继续努力。
+    </span>
+
     
 
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                跨平台开发时，我们为什么不封装http请求的sdk
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-12-11T19:09:42+08:00" content="2017-12-11">
-              2017-12-11
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2017/12/11/sdk-without-http/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2017/12/11/sdk-without-http/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-              &nbsp; | &nbsp;
-              <span class="page-pv"><i class="fa fa-file-o"></i>浏览
-              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
-              </span>
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
+      
       
       
 
-      
-        <h2 id="为什么要封装sdk"><a href="#为什么要封装sdk" class="headerlink" title="为什么要封装sdk"></a>为什么要封装sdk</h2><p>相信很多开发团队都同时需要开发各种平台的客户端，有android、ios，甚至是pc版客户端。于是，怎么尽可能复用同一套业务代码，成了很多开发讨论的话题。</p>
-<p>比如，开发照片处理软件，核心的处理算法一定都是c++写的，除了计算效率高之外，算法的实现也肯定是很复杂的，不可能每个客户端都用各自编程语言实现一套。这样带来的好处有：</p>
-<ol>
-<li>代码量更少，开发效率高。</li>
-<li>减少了不同语言实现时产生相同bug的可能。</li>
-<li>减少了因不同语言开发人员开发水平不一致，出现各种bug的可能。</li>
-<li>后期维护更方便。</li>
-<li>测试更方便。</li>
-</ol>
-<p>同样地，当你引入一个新的通信库时，如grpc。它提供了不同语言的实现，java、go、c++。如果每个语言都基于grpc封装一套通信逻辑，意味着每个语言的人都要了解grpc的使用，如果要求高一点，我们对引入的第三方库一定要读懂核心代码，那耗费的时间就更多了。更别说后期维护的时间。</p>
-<h2 id="什么时候要封装sdk"><a href="#什么时候要封装sdk" class="headerlink" title="什么时候要封装sdk"></a>什么时候要封装sdk</h2><p>所以，我们到底什么时候该封装sdk呢？我认为出现下面几种情况，你可能就得考虑封装sdk了。</p>
-<ol>
-<li>业务逻辑复杂，并且多平台客户端都需要。</li>
-<li>复杂的算法。</li>
-<li>网络通信中间件。比如我上面提到的grpc,还有一些基于tcp数据的封装、发送、解析。</li>
-<li>多个项目可能会使用的公共模块。</li>
-</ol>
-<h2 id="http请求，是否要封装？"><a href="#http请求，是否要封装？" class="headerlink" title="http请求，是否要封装？"></a>http请求，是否要封装？</h2><p>我们常说的一句话，架构设计不能脱离业务。诚然，我们很多时候的技术选型都是在权衡，权衡开发成本，权衡产品状态，权衡现有开发人员的水平等等。有的时候具体问题还是要具体分析。<br>上面说了那么多什么时候要封装sdk。那对于提供http接口的服务，有必要封装sdk吗？<br>我认为如果只是封装http的请求和响应，而不包含其他业务逻辑时，必要性不大，原因如下：</p>
-<ol>
-<li>如果将http的请求和相应封装成sdk，我们看看是否提高了开发效率。首先确实只有一处公共代码发起http请求和响应，但为此，需要为各个客户端封装接口，以便能调用sdk。比如，c#需要封装托管c++或是提供c语言形式地接口，然后c#在以invoke的方式调用。比如，java和andriod，我们需要封装jni接口。其他语言就更别说了，能间接调用c接口，但都要简单的封装。于是，后期我们每增加一个接口都需要修改sdk，需要修改调用接口。这样做提高效率了吗？有人可能会说，sdk中发起http请求和相应的代码复用了，我减少了开发和维护成本呢。</li>
-<li>但不要忘记了，各个语言都有非常成熟且经过充分验证的http client api。也就是说，各个高级开发语言（除了c++）不需要额外的开发精力，我们就能实现稳定的http调用。</li>
-<li>对于http服务来说，如果设计人员的水平还行的话，我们不可能需要频繁修改接口，更多的是新增接口。而对于新增接口而言，我们并没有节省什么开发成本。</li>
-<li>你能保证你封装的接口一次性交付么？</li>
-</ol>
-<h2 id="封装sdk可能带来的问题"><a href="#封装sdk可能带来的问题" class="headerlink" title="封装sdk可能带来的问题"></a>封装sdk可能带来的问题</h2><p>再说远一点，并不是说为了增加复用，提高开发效率就一定要封装sdk。如果是服务端开发人员，如果多个项目都包含同一份sdk，一旦该sdk出了问题，就意味着所有相关项目都需要重新升级部署。<br>这个时候就该考虑服务化了，如果该sdk相关逻辑在一个单独的服务里面，我们只需要更新该服务就行，这样相关项目与那段逻辑就实现了解耦。沈剑的这篇文章<a href="https://mp.weixin.qq.com/s/mjWCuYYbFs16esvkwZ-LKw" target="_blank" rel="external">《小小的公共库，大大的耦合，你痛过吗？》</a>，大家可以关注下。</p>
-<hr>
-<p>本文链接：<a href="http://servercoder.com/2017/12/11/sdk-without-http/">http://servercoder.com/2017/12/11/sdk-without-http/</a></p>
-
-      
-    </div>
-
-    <div>
       
         
-      
-    </div>
-
-    <div>
-      
-        
-
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-          </div>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/01/03/byte-order/" rel="prev" title="">
-                 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
+        <div class="collection-title">
+          <h2 class="archive-year motion-element" id="archive-year-2018">2018</h2>
         </div>
       
+      
 
       
-      
-    </footer>
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h1 class="post-title">
+        
+            <a class="post-title-link" href="/2018/01/03/byte-order/" itemprop="url">
+              
+                <span itemprop="name">未命名</span>
+              
+            </a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2018-01-03T23:00:16+08:00"
+              content="2018-01-03" >
+          01-03
+        </time>
+      </div>
+
+    </header>
   </article>
 
 
 
-    <div class="post-spread">
-      
-    </div>
-  </div>
+    
+
+  </section>
+
+  
+
 
 
           </div>
@@ -420,12 +329,6 @@
 
 
           
-<section id="comment">
-  <div id="disqus_thread">
-    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-  </div>
-</section>
-
 
         </div>
         
@@ -445,17 +348,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel ">
+      <section class="site-overview sidebar-panel  sidebar-panel-active ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="https://avatars1.githubusercontent.com/u/32269?v=3&s=460"
@@ -541,17 +435,6 @@
 
       </section>
 
-      
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-            
-              
-            
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么要封装sdk"><span class="nav-number">1.</span> <span class="nav-text">为什么要封装sdk</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么时候要封装sdk"><span class="nav-number">2.</span> <span class="nav-text">什么时候要封装sdk</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#http请求，是否要封装？"><span class="nav-number">3.</span> <span class="nav-text">http请求，是否要封装？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#封装sdk可能带来的问题"><span class="nav-number">4.</span> <span class="nav-text">封装sdk可能带来的问题</span></a></li></ol></div>
-            
-          </div>
-        </section>
       
 
     </div>
@@ -664,9 +547,11 @@
   
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
-
+  
+    <script type="text/javascript" id="motion.page.archive">
+      $('.archive-year').velocity('transition.slideLeftIn');
+    </script>
+  
 
 
   
@@ -684,9 +569,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'programer';
-      var disqus_identifier = '2017/12/11/sdk-without-http/';
-      var disqus_title = '跨平台开发时，我们为什么不封装http请求的sdk';
-      var disqus_url = 'http://servercoder.com/2017/12/11/sdk-without-http/';
+      var disqus_identifier = 'archives/2018/01/index.html';
+      var disqus_title = '';
+      var disqus_url = '';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');
@@ -697,8 +582,6 @@
       }
 
       run_disqus_script('count.js');
-      
-        run_disqus_script('embed.js');
       
     </script>
   

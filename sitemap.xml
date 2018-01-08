@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://servercoder.com/2018/01/03/byte-order/</loc>
+    
+    <lastmod>2018-01-08T14:19:13.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://servercoder.com/tags/index-1.html</loc>
+    
+    <lastmod>2017-12-11T11:15:37.116Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://servercoder.com/2017/12/11/sdk-without-http/</loc>
     
     <lastmod>2017-12-11T11:09:42.984Z</lastmod>
