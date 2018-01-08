@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://servercoder.com/"/>
-  <updated>2018-01-08T14:19:13.000Z</updated>
+  <updated>2018-01-08T14:22:21.820Z</updated>
   <id>http://servercoder.com/</id>
   
   <author>
@@ -16,13 +16,13 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
+    <title>我是怎么处理大小端及网络字节序的？</title>
     <link href="http://servercoder.com/2018/01/03/byte-order/"/>
     <id>http://servercoder.com/2018/01/03/byte-order/</id>
     <published>2018-01-03T15:00:16.588Z</published>
-    <updated>2018-01-08T14:19:13.000Z</updated>
+    <updated>2018-01-08T14:22:21.820Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="我是怎么处理大小端及网络字节序的？"><a href="#我是怎么处理大小端及网络字节序的？" class="headerlink" title="我是怎么处理大小端及网络字节序的？"></a>我是怎么处理大小端及网络字节序的？</h2><h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>最开始接触c语言时，总会花很多精力去记各种操作符的优先级。后来才发现，实际开发根本就不用记。自此这么多年，除了加减乘除这种小学生都知道的优先级，我基本都是用括号搞定优先级。</p>
+    <content type="html"><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>最开始接触c语言时，总会花很多精力去记各种操作符的优先级。后来才发现，实际开发根本就不用记。自此这么多年，除了加减乘除这种小学生都知道的优先级，我基本都是用括号搞定优先级。</p>
 <p>同样，不同语言的字节序都不尽相同，比如c++大部分平台是小端存储的（c++的字节序与处理器有关系，具体大小端与编译器对应关系见参考文档1），java就是采用大端存储，c#似乎是小端存储（c#我写的少，有心人可以帮忙确认下）。在写跨语言或者跨平台的程序时，字节序的转换就不得不考虑了。</p>
 <h2 id="大端小端转换"><a href="#大端小端转换" class="headerlink" title="大端小端转换"></a>大端小端转换</h2><p>关于大端小端的由来，可以看看《格列佛游记》，我就不转载了。<br>大端：数据的高位存储在低地址中，低位存储在高地址中。<br>小端：数据的低位存储在高地址中，高位存储在低地址中。</p>
 <p>举个例子，数据0x12345678，占4个字节，分别是0x12、0x34、0x56、0x78。假设内存起始地址是0x80000000。<br>对于小端程序来说，0x80000000存放0x78，0x80000001存放0x56，0x80000002存放0x34，0x80000003存放0x12。<br>而对于大端程序来说，0x80000000存放0x12，0x80000001存放0x34，0x80000002存放0x56，0x80000003存放0x78。</p>
@@ -54,7 +54,7 @@
     
     <summary type="html">
     
-      &lt;h2 id=&quot;我是怎么处理大小端及网络字节序的？&quot;&gt;&lt;a href=&quot;#我是怎么处理大小端及网络字节序的？&quot; class=&quot;headerlink&quot; title=&quot;我是怎么处理大小端及网络字节序的？&quot;&gt;&lt;/a&gt;我是怎么处理大小端及网络字节序的？&lt;/h2&gt;&lt;h2 id=&quot;背景&quot;&gt;&lt;
+      &lt;h2 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h2&gt;&lt;p&gt;最开始接触c语言时，总会花很多精力去记各种操作符的优先级。后来才发现，实际开发根本就不用记。自此这么多年，除了加减乘除这种小学生都知道的优先
     
     </summary>
     
