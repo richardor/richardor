@@ -86,13 +86,17 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="后台服务开发">
-<meta property="og:url" content="http://servercoder.com/archives/2018/index.html">
+<meta name="description" content="历史进程间数据交换有很多种方式，比如共享内存、网络通信、文件、数据库等等。如果你的数据并不是整齐有规律，且内存对齐的。大部分情况下，你都需要采用一种数据交换格式来描述你交换的数据，我们通常称之为序列化和反序列化。而描述这些数据的格式，我们通常称之为数据交换格式。 最原始的数据交换格式就类似于tcp/ip那样的描述，一般称之为二进制数据格式。每一层协议都有包头和包体，包头中会包含包体的长度，数据类型">
+<meta property="og:type" content="article">
+<meta property="og:title" content="你真的用对protobuf了吗？">
+<meta property="og:url" content="http://servercoder.com/2018/01/10/protobuf-usages/index.html">
 <meta property="og:site_name" content="后台服务开发">
+<meta property="og:description" content="历史进程间数据交换有很多种方式，比如共享内存、网络通信、文件、数据库等等。如果你的数据并不是整齐有规律，且内存对齐的。大部分情况下，你都需要采用一种数据交换格式来描述你交换的数据，我们通常称之为序列化和反序列化。而描述这些数据的格式，我们通常称之为数据交换格式。 最原始的数据交换格式就类似于tcp/ip那样的描述，一般称之为二进制数据格式。每一层协议都有包头和包体，包头中会包含包体的长度，数据类型">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-01-13T15:57:29.893Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="后台服务开发">
+<meta name="twitter:title" content="你真的用对protobuf了吗？">
+<meta name="twitter:description" content="历史进程间数据交换有很多种方式，比如共享内存、网络通信、文件、数据库等等。如果你的数据并不是整齐有规律，且内存对齐的。大部分情况下，你都需要采用一种数据交换格式来描述你交换的数据，我们通常称之为序列化和反序列化。而描述这些数据的格式，我们通常称之为数据交换格式。 最原始的数据交换格式就类似于tcp/ip那样的描述，一般称之为二进制数据格式。每一层协议都有包头和包体，包头中会包含包体的长度，数据类型">
 
 
 
@@ -110,7 +114,7 @@
   };
 </script>
 
-  <title> 归档 | 后台服务开发 </title>
+  <title> 你真的用对protobuf了吗？ | 后台服务开发 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -131,7 +135,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  page-archive  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -262,103 +266,151 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
-
-    <span class="archive-page-counter">
-      
-      
-      
-        
-      
-      嗯..! 目前共计 3 篇日志。 继续努力。
-    </span>
-
+  <div id="posts" class="posts-expand">
     
-
-      
-      
-      
-
-      
-        
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2018">2018</h2>
-        </div>
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2018/01/10/protobuf-usages/" itemprop="url">
-              
-                <span itemprop="name">你真的用对protobuf了吗？</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-01-10T22:24:54+08:00"
-              content="2018-01-10" >
-          01-10
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2018/01/03/byte-order/" itemprop="url">
-              
-                <span itemprop="name">我是怎么处理大小端及网络字节序的？</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-01-03T23:00:16+08:00"
-              content="2018-01-03" >
-          01-03
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-  </section>
 
   
+  
 
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                你真的用对protobuf了吗？
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2018-01-10T22:24:54+08:00" content="2018-01-10">
+              2018-01-10
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2018/01/10/protobuf-usages/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/01/10/protobuf-usages/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o"></i>浏览
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="历史"><a href="#历史" class="headerlink" title="历史"></a>历史</h2><p>进程间数据交换有很多种方式，比如共享内存、网络通信、文件、数据库等等。如果你的数据并不是整齐有规律，且内存对齐的。大部分情况下，你都需要采用一种数据交换格式来描述你交换的数据，我们通常称之为序列化和反序列化。而描述这些数据的格式，我们通常称之为数据交换格式。</p>
+<p>最原始的数据交换格式就类似于tcp/ip那样的描述，一般称之为二进制数据格式。每一层协议都有包头和包体，包头中会包含包体的长度，数据类型，保留字段dengdeng。当然，不要忘了还有块存储区域保存了数据的校验和。尽管这种格式可读性较差，但这种格式的序列化和反序列化效率是最高的。</p>
+<p>二进制数据格式除了可读性较差以外，扩展性不好是开发者不会普遍采用的主要原因。于是就慢慢发展出了xml和json这两种自描述的数据交换格式。他们可读性强，有确定的schema。起先http的通信大部分基于soap协议，而soap离不开xml。随着前端技术的发展，尤其是javascript对json的支持，使得开发人员能很方便地序列化和反序列化json，于是json慢慢就成了web开发主流的数据交换格式。如今基本很少看到基于xml的接口了，除了部分陈旧的天气预报服务的订阅接口以外。</p>
+<h2 id="为什么选择protobuf"><a href="#为什么选择protobuf" class="headerlink" title="为什么选择protobuf"></a>为什么选择protobuf</h2><p>近几年，又陆续出现了二进制数据交换格式，比如Thrift、Protobuf，还有各大互联网公司自研的号称比protobuf更好的数据交换格式。其中，protobuf封装性更好，与平台语言都无关，使用会更广泛。</p>
+<p>除了rest接约定俗称采用json以外，我们大部分采用protobuf的原因如下：</p>
+<ol>
+<li>速度更快</li>
+<li>空间更小</li>
+<li>浮点数的精度支持不好，尤其是json</li>
+<li>xml、json都是文本型的，如果想存储二进制数据，必须先将其转为文本数据，比如使用base64编码</li>
+<li>安全。json不同语言有各种各样的解析库，代码实现者信息安全经验良莠不齐，大部分库都有远程执行漏洞。而protobuf由谷歌官方维护，能很大程度上保证安全，一旦出现安全隐患也会很快更新。</li>
+</ol>
+<p>大部分人只知道前面两点，并不了解后面三点protobuf的优势。</p>
+<h2 id="protobuf你用对了吗？"><a href="#protobuf你用对了吗？" class="headerlink" title="protobuf你用对了吗？"></a>protobuf你用对了吗？</h2><h3 id="尽量使用proto3"><a href="#尽量使用proto3" class="headerlink" title="尽量使用proto3"></a>尽量使用proto3</h3><p>相比于proto2，proto3更简洁，不需要用户指定required、optional关键字，这点除了开发更方便以外，对于前后兼容也是非常有帮助的，我将在下一条建议中说明。</p>
+<h2 id="版本号"><a href="#版本号" class="headerlink" title="版本号"></a>版本号</h2><p>有很多从json或其他协议转过来的人，还会保留以前那套协议版本号的做法。事实上，这样的做法非常恶心，代码里面会有大量的版本判断和处理。protobuf的设计初衷就是为了避免出现这样恶心的代码的。<br>具体请看<a href="https://developers.google.com/protocol-buffers/docs/overview#a-bit-of-history" target="_blank" rel="external">a bit of history</a>、<a href="https://developers.google.com/protocol-buffers/docs/cpptutorial#extending-a-protocol-buffer" target="_blank" rel="external">Extending a Protocol Buffer</a></p>
+<p>谷歌是这样讲的:</p>
+<blockquote>
+<p>Protocol buffers were designed to solve many of these problems:</p>
+<p>New fields could be easily introduced, and intermediate servers that didn’t need to inspect the data could simply parse it and pass through the data without needing to know about all the fields.</p>
+<p>Formats were more self-describing, and could be dealt with from a variety of languages (C++, Java, etc.)</p>
+</blockquote>
+<h2 id="存储大量字符串"><a href="#存储大量字符串" class="headerlink" title="存储大量字符串"></a>存储大量字符串</h2><p>有些人会使用protobuf存储大量字符串，更有甚者可能会将json放入protobuf中。<br>如果有心人看过protobuf序列化之后的数据，会发现protobuf对字符串数据是直接拷贝的。所以使用protobuf存储字符串，并没有达到优化空间的目的。</p>
+<h2 id="二进制数据不需要加密"><a href="#二进制数据不需要加密" class="headerlink" title="二进制数据不需要加密"></a>二进制数据不需要加密</h2><p>既然protobuf是二进制数据交换格式，那我们还有必要对其进行加密吗？<br>看过protobuf官方文档的人会知道，protobuf存储思路是这样的：对于不同字段，使用了tag来标识，而基本数据类型，使用了ZigZag类型存储，字符串直接拷贝。<br>换句话说，protobuf就类似与代码混淆一样，将字段名用简化后的字段名表示，只是可读性差一点。但里面所有的值都可以算出来。<br>所以如果安全对你的应用来说很重要的话，还是加密吧。</p>
+<hr>
+<p>本文链接：<a href="http://servercoder.com/2018/01/10/protobuf-usages/">http://servercoder.com/2018/01/10/protobuf-usages/</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/03/byte-order/" rel="next" title="我是怎么处理大小端及网络字节序的？">
+                <i class="fa fa-chevron-left"></i> 我是怎么处理大小端及网络字节序的？
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -366,6 +418,12 @@
 
 
           
+<section id="comment">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
 
         </div>
         
@@ -385,8 +443,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="https://avatars1.githubusercontent.com/u/32269?v=3&s=460"
@@ -472,6 +539,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#历史"><span class="nav-number">1.</span> <span class="nav-text">历史</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么选择protobuf"><span class="nav-number">2.</span> <span class="nav-text">为什么选择protobuf</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#protobuf你用对了吗？"><span class="nav-number">3.</span> <span class="nav-text">protobuf你用对了吗？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#尽量使用proto3"><span class="nav-number">3.1.</span> <span class="nav-text">尽量使用proto3</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#版本号"><span class="nav-number">4.</span> <span class="nav-text">版本号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储大量字符串"><span class="nav-number">5.</span> <span class="nav-text">存储大量字符串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二进制数据不需要加密"><span class="nav-number">6.</span> <span class="nav-text">二进制数据不需要加密</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -584,11 +662,9 @@
   
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
 
 
   
@@ -606,9 +682,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'programer';
-      var disqus_identifier = 'archives/2018/index.html';
-      var disqus_title = '';
-      var disqus_url = '';
+      var disqus_identifier = '2018/01/10/protobuf-usages/';
+      var disqus_title = '你真的用对protobuf了吗？';
+      var disqus_url = 'http://servercoder.com/2018/01/10/protobuf-usages/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');
@@ -619,6 +695,8 @@
       }
 
       run_disqus_script('count.js');
+      
+        run_disqus_script('embed.js');
       
     </script>
   
