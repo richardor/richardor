@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.servercoder.com/"/>
-  <updated>2018-01-13T15:57:29.893Z</updated>
+  <updated>2018-03-11T07:47:05.914Z</updated>
   <id>http://www.servercoder.com/</id>
   
   <author>
@@ -14,6 +14,48 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>基于开源leanote打造多终端同步云笔记应用</title>
+    <link href="http://www.servercoder.com/2018/03/11/leanote-private/"/>
+    <id>http://www.servercoder.com/2018/03/11/leanote-private/</id>
+    <published>2018-03-11T07:47:05.914Z</published>
+    <updated>2018-03-11T07:47:05.914Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>写在前面，这并不是一篇leanote的广告。</p>
+</blockquote>
+<p>这些年，我试用过多款云笔记产品，作为一个程序员，我的需求很简单，支持markdown、多终端（windows+mac）同步，界面不要太丑，免费，偶尔导出到pdf。<br>但就是这么简单的需求，似乎很难满足。</p>
+<p>市面上我所知道的云笔记产品有：有道云笔记、Evernote、Quiver、Quip、马克飞象， 当然还有人直接使用markdown编辑器，每次保存时，手动或自动推送到github上。</p>
+<p>下面说说这些软件或多或少让我不太满意的地方：</p>
+<ol>
+<li>EverNote确实是名气最大的笔记软件，但重在收集，一直也不支持markdown。</li>
+<li>有道云笔记在我开始使用的时候，就丑的不能再丑，写这篇文章的时候特地重新使用了一下，交互比几年前清爽多了，也支持mardown，就是免费版带广告，不能导出文档。</li>
+<li>Quiver是我见过的支持的写markdown最舒服，交互最爽的mac版本地笔记软件，就是没有windows版，也不能同步，只能说遗憾了。mac版收费，你知道怎么免费使用的。</li>
+<li>Quip支持多终端，没有使用限制，交互简单，能导出文档，能多终端同步。如果不是因为markdown需求，我是不可能抛弃使用了半年的Quip的</li>
+<li>本地编辑，利用github的public repository做同步，确实够灵活，就是没有了隐私，尤其是设计到机密的文档，一定要慎重。</li>
+</ol>
+<h2 id="leanote功能"><a href="#leanote功能" class="headerlink" title="leanote功能"></a>leanote功能</h2><p>有一天，我突然在开源中国上见到了leanote，当时还没有稳定，只要推广用户就能增加一个月的旗舰会员。使用下来后发现，它竟然满足了我所有的需求：markdown、多终端同步、无限制历史记录、免费、能导出到各种文档。各重要的是，开源！</p>
+<p>后来发现leanote并不支持使用markdown画流程图、时序图等后，一度想换掉，万幸leanote的开发人员集成了这些图表功能，得给他们点个赞。</p>
+<p>当然，leanote也有缺点，我身边很多人不想用的原因也很直接，界面丑！说实在，如果不是实在没有别适合我的软件，我也不太想用leanote的。</p>
+<p>此外，leanote还支持一键发布到博客，对于那些懒得自己搭建博客的同学来说，简直就是太方便了。</p>
+<h2 id="如何免费用leanote"><a href="#如何免费用leanote" class="headerlink" title="如何免费用leanote"></a>如何免费用leanote</h2><p>使用leanote一年多了，现在没有了leanote旗舰会员，如果要想使用旗舰套餐，每年得给leanote贡献150元，说实在，我觉得这个定价有点贵。<br>既然leanote是开源的，正好我手上又有服务器，那就私有化部署咯。</p>
+<p>只要leanote不告我，我承诺3年内不关服，毕竟我自己也要一直使用嘛。blog.servercoder.com，有需要的同学可以自行注册使用。</p>
+<hr>
+<p>本文链接：<a href="http://www.servercoder.com/2018/03/11/leanote-private/">http://www.servercoder.com/2018/03/11/leanote-private/</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;写在前面，这并不是一篇leanote的广告。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这些年，我试用过多款云笔记产品，作为一个程序员，我的需求很简单，支持markdown、多终端（windows+mac）同步，界面不要太丑，免费，偶尔导出到pdf
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>你真的用对protobuf了吗？</title>
