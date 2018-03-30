@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.servercoder.com/"/>
-  <updated>2018-03-30T12:26:11.656Z</updated>
+  <updated>2018-03-30T12:26:47.010Z</updated>
   <id>http://www.servercoder.com/</id>
   
   <author>
@@ -20,9 +20,95 @@
     <link href="http://www.servercoder.com/2018/03/30/consul-vs-zookeeper-etcd/"/>
     <id>http://www.servercoder.com/2018/03/30/consul-vs-zookeeper-etcd/</id>
     <published>2018-03-30T12:18:27.708Z</published>
-    <updated>2018-03-30T12:26:11.656Z</updated>
+    <updated>2018-03-30T12:26:47.010Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>本文并不介绍服务发现的基本原理。除了一致性算法之外，其他并没有太多高深的算法，网上的资料很容易让大家明白上面是服务发现。<br>想直接查看结论的同学，请直接跳到文末。<br>目前，市面上有非常多的服务发现工具，《<a href="http://jasonwilder.com/blog/2014/02/04/service-discovery-in-the-cloud/" target="_blank" rel="external">Open-Source Service Discovery</a>》一文中列举了如下开源的服务发现工具。<br>|Name|Type|AP or CP|Language|Dependencies|Integration|<br>|—|—|—|—|—|—|<br>|Zookeeper|General|CP|Java|JVM|Client Binding|<br>|Doozer|General|CP|Go||Client Binding|<br>|Etcd|General|Mixed (1)    |Go||Client Binding/HTTP|<br>|SmartStack|Dedicated|AP|Ruby|haproxy/Zookeeper|Sidekick (nerve/synapse)|<br>|Eureka|Dedicated|AP|Java|JVM|Java Client|<br>|NSQ (lookupd)|Dedicated|AP|Go|    |Client Binding|<br>|Serf|Dedicated|AP|Go||Local CLI|<br>|Spotify (DNS)|Dedicated|AP|N/A|Bind|DNS Library|<br>|SkyDNS|Dedicated|Mixed (2)|Go||HTTP/DNS Library|</p>
+    <content type="html"><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>本文并不介绍服务发现的基本原理。除了一致性算法之外，其他并没有太多高深的算法，网上的资料很容易让大家明白上面是服务发现。<br>想直接查看结论的同学，请直接跳到文末。<br>目前，市面上有非常多的服务发现工具，《<a href="http://jasonwilder.com/blog/2014/02/04/service-discovery-in-the-cloud/" target="_blank" rel="external">Open-Source Service Discovery</a>》一文中列举了如下开源的服务发现工具。</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>AP or CP</th>
+<th>Language</th>
+<th>Dependencies</th>
+<th>Integration</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Zookeeper</td>
+<td>General</td>
+<td>CP</td>
+<td>Java</td>
+<td>JVM</td>
+<td>Client Binding</td>
+</tr>
+<tr>
+<td>Doozer</td>
+<td>General</td>
+<td>CP</td>
+<td>Go</td>
+<td></td>
+<td>Client Binding</td>
+</tr>
+<tr>
+<td>Etcd</td>
+<td>General</td>
+<td>Mixed (1)</td>
+<td>Go</td>
+<td></td>
+<td>Client Binding/HTTP</td>
+</tr>
+<tr>
+<td>SmartStack</td>
+<td>Dedicated</td>
+<td>AP</td>
+<td>Ruby</td>
+<td>haproxy/Zookeeper</td>
+<td>Sidekick (nerve/synapse)</td>
+</tr>
+<tr>
+<td>Eureka</td>
+<td>Dedicated</td>
+<td>AP</td>
+<td>Java</td>
+<td>JVM</td>
+<td>Java Client</td>
+</tr>
+<tr>
+<td>NSQ (lookupd)</td>
+<td>Dedicated</td>
+<td>AP</td>
+<td>Go</td>
+<td></td>
+<td>Client Binding</td>
+</tr>
+<tr>
+<td>Serf</td>
+<td>Dedicated</td>
+<td>AP</td>
+<td>Go</td>
+<td></td>
+<td>Local CLI</td>
+</tr>
+<tr>
+<td>Spotify (DNS)</td>
+<td>Dedicated</td>
+<td>AP</td>
+<td>N/A</td>
+<td>Bind</td>
+<td>DNS Library</td>
+</tr>
+<tr>
+<td>SkyDNS</td>
+<td>Dedicated</td>
+<td>Mixed (2)</td>
+<td>Go</td>
+<td></td>
+<td>HTTP/DNS Library</td>
+</tr>
+</tbody>
+</table>
 <p>(1) If using the consistent parameter, inconsistent reads are possible<br>(2) If using a caching DNS client in front of SkyDNS, reads could be inconsistent</p>
 <hr>
 <p>上面表格中，前三个是通用的，后面都是各大公司自己造的轮子，应用范围并不广，我也就不深入研究了。<br>此外，这篇文章是14年写的，当时它并没有研究Consul，放到表格中，Consul则应该是General、CP、Go、No dependency、Http/DNS Library。<br>截止到今天，除了容器编排框架k8s、istio/envoy自己实现了服务发现机制（他们也兼容第三方的服务发现工具），似乎也没有其他的知名的服务发现框架出现了。<br>下面我就zookeeper、etcd、consul这三款进行下比较。</p>
