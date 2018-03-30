@@ -93,7 +93,7 @@
 <meta property="og:site_name" content="后台服务开发">
 <meta property="og:description" content="背景本文并不介绍服务发现的基本原理。除了一致性算法之外，其他并没有太多高深的算法，网上的资料很容易让大家明白上面是服务发现。想直接查看结论的同学，请直接跳到文末。目前，市面上有非常多的服务发现工具，《Open-Source Service Discovery》一文中列举了如下开源的服务发现工具。    Name Type AP or CP Language Dependencies Integra">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-30T12:26:47.010Z">
+<meta property="og:updated_time" content="2018-03-30T12:28:15.624Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="服务发现框架选型，Consul还是Zookeeper还是etcd">
 <meta name="twitter:description" content="背景本文并不介绍服务发现的基本原理。除了一致性算法之外，其他并没有太多高深的算法，网上的资料很容易让大家明白上面是服务发现。想直接查看结论的同学，请直接跳到文末。目前，市面上有非常多的服务发现工具，《Open-Source Service Discovery》一文中列举了如下开源的服务发现工具。    Name Type AP or CP Language Dependencies Integra">
@@ -343,86 +343,86 @@
 <table>
 <thead>
 <tr>
-<th>Name</th>
-<th>Type</th>
-<th>AP or CP</th>
-<th>Language</th>
-<th>Dependencies</th>
-<th>Integration</th>
+<th style="text-align:left">Name</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">AP or CP</th>
+<th style="text-align:left">Language</th>
+<th style="text-align:left">Dependencies</th>
+<th style="text-align:left">Integration</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Zookeeper</td>
-<td>General</td>
-<td>CP</td>
-<td>Java</td>
-<td>JVM</td>
-<td>Client Binding</td>
+<td style="text-align:left">Zookeeper</td>
+<td style="text-align:left">General</td>
+<td style="text-align:left">CP</td>
+<td style="text-align:left">Java</td>
+<td style="text-align:left">JVM</td>
+<td style="text-align:left">Client Binding</td>
 </tr>
 <tr>
-<td>Doozer</td>
-<td>General</td>
-<td>CP</td>
-<td>Go</td>
-<td></td>
-<td>Client Binding</td>
+<td style="text-align:left">Doozer</td>
+<td style="text-align:left">General</td>
+<td style="text-align:left">CP</td>
+<td style="text-align:left">Go</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">Client Binding</td>
 </tr>
 <tr>
-<td>Etcd</td>
-<td>General</td>
-<td>Mixed (1)</td>
-<td>Go</td>
-<td></td>
-<td>Client Binding/HTTP</td>
+<td style="text-align:left">Etcd</td>
+<td style="text-align:left">General</td>
+<td style="text-align:left">Mixed (1)</td>
+<td style="text-align:left">Go</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">Client Binding/HTTP</td>
 </tr>
 <tr>
-<td>SmartStack</td>
-<td>Dedicated</td>
-<td>AP</td>
-<td>Ruby</td>
-<td>haproxy/Zookeeper</td>
-<td>Sidekick (nerve/synapse)</td>
+<td style="text-align:left">SmartStack</td>
+<td style="text-align:left">Dedicated</td>
+<td style="text-align:left">AP</td>
+<td style="text-align:left">Ruby</td>
+<td style="text-align:left">haproxy/Zookeeper</td>
+<td style="text-align:left">Sidekick (nerve/synapse)</td>
 </tr>
 <tr>
-<td>Eureka</td>
-<td>Dedicated</td>
-<td>AP</td>
-<td>Java</td>
-<td>JVM</td>
-<td>Java Client</td>
+<td style="text-align:left">Eureka</td>
+<td style="text-align:left">Dedicated</td>
+<td style="text-align:left">AP</td>
+<td style="text-align:left">Java</td>
+<td style="text-align:left">JVM</td>
+<td style="text-align:left">Java Client</td>
 </tr>
 <tr>
-<td>NSQ (lookupd)</td>
-<td>Dedicated</td>
-<td>AP</td>
-<td>Go</td>
-<td></td>
-<td>Client Binding</td>
+<td style="text-align:left">NSQ (lookupd)</td>
+<td style="text-align:left">Dedicated</td>
+<td style="text-align:left">AP</td>
+<td style="text-align:left">Go</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">Client Binding</td>
 </tr>
 <tr>
-<td>Serf</td>
-<td>Dedicated</td>
-<td>AP</td>
-<td>Go</td>
-<td></td>
-<td>Local CLI</td>
+<td style="text-align:left">Serf</td>
+<td style="text-align:left">Dedicated</td>
+<td style="text-align:left">AP</td>
+<td style="text-align:left">Go</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">Local CLI</td>
 </tr>
 <tr>
-<td>Spotify (DNS)</td>
-<td>Dedicated</td>
-<td>AP</td>
-<td>N/A</td>
-<td>Bind</td>
-<td>DNS Library</td>
+<td style="text-align:left">Spotify (DNS)</td>
+<td style="text-align:left">Dedicated</td>
+<td style="text-align:left">AP</td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left">Bind</td>
+<td style="text-align:left">DNS Library</td>
 </tr>
 <tr>
-<td>SkyDNS</td>
-<td>Dedicated</td>
-<td>Mixed (2)</td>
-<td>Go</td>
-<td></td>
-<td>HTTP/DNS Library</td>
+<td style="text-align:left">SkyDNS</td>
+<td style="text-align:left">Dedicated</td>
+<td style="text-align:left">Mixed (2)</td>
+<td style="text-align:left">Go</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">HTTP/DNS Library</td>
 </tr>
 </tbody>
 </table>

@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.servercoder.com/"/>
-  <updated>2018-03-30T12:26:47.010Z</updated>
+  <updated>2018-03-30T12:28:15.624Z</updated>
   <id>http://www.servercoder.com/</id>
   
   <author>
@@ -20,92 +20,92 @@
     <link href="http://www.servercoder.com/2018/03/30/consul-vs-zookeeper-etcd/"/>
     <id>http://www.servercoder.com/2018/03/30/consul-vs-zookeeper-etcd/</id>
     <published>2018-03-30T12:18:27.708Z</published>
-    <updated>2018-03-30T12:26:47.010Z</updated>
+    <updated>2018-03-30T12:28:15.624Z</updated>
     
     <content type="html"><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>本文并不介绍服务发现的基本原理。除了一致性算法之外，其他并没有太多高深的算法，网上的资料很容易让大家明白上面是服务发现。<br>想直接查看结论的同学，请直接跳到文末。<br>目前，市面上有非常多的服务发现工具，《<a href="http://jasonwilder.com/blog/2014/02/04/service-discovery-in-the-cloud/" target="_blank" rel="external">Open-Source Service Discovery</a>》一文中列举了如下开源的服务发现工具。</p>
 <table>
 <thead>
 <tr>
-<th>Name</th>
-<th>Type</th>
-<th>AP or CP</th>
-<th>Language</th>
-<th>Dependencies</th>
-<th>Integration</th>
+<th style="text-align:left">Name</th>
+<th style="text-align:left">Type</th>
+<th style="text-align:left">AP or CP</th>
+<th style="text-align:left">Language</th>
+<th style="text-align:left">Dependencies</th>
+<th style="text-align:left">Integration</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Zookeeper</td>
-<td>General</td>
-<td>CP</td>
-<td>Java</td>
-<td>JVM</td>
-<td>Client Binding</td>
+<td style="text-align:left">Zookeeper</td>
+<td style="text-align:left">General</td>
+<td style="text-align:left">CP</td>
+<td style="text-align:left">Java</td>
+<td style="text-align:left">JVM</td>
+<td style="text-align:left">Client Binding</td>
 </tr>
 <tr>
-<td>Doozer</td>
-<td>General</td>
-<td>CP</td>
-<td>Go</td>
-<td></td>
-<td>Client Binding</td>
+<td style="text-align:left">Doozer</td>
+<td style="text-align:left">General</td>
+<td style="text-align:left">CP</td>
+<td style="text-align:left">Go</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">Client Binding</td>
 </tr>
 <tr>
-<td>Etcd</td>
-<td>General</td>
-<td>Mixed (1)</td>
-<td>Go</td>
-<td></td>
-<td>Client Binding/HTTP</td>
+<td style="text-align:left">Etcd</td>
+<td style="text-align:left">General</td>
+<td style="text-align:left">Mixed (1)</td>
+<td style="text-align:left">Go</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">Client Binding/HTTP</td>
 </tr>
 <tr>
-<td>SmartStack</td>
-<td>Dedicated</td>
-<td>AP</td>
-<td>Ruby</td>
-<td>haproxy/Zookeeper</td>
-<td>Sidekick (nerve/synapse)</td>
+<td style="text-align:left">SmartStack</td>
+<td style="text-align:left">Dedicated</td>
+<td style="text-align:left">AP</td>
+<td style="text-align:left">Ruby</td>
+<td style="text-align:left">haproxy/Zookeeper</td>
+<td style="text-align:left">Sidekick (nerve/synapse)</td>
 </tr>
 <tr>
-<td>Eureka</td>
-<td>Dedicated</td>
-<td>AP</td>
-<td>Java</td>
-<td>JVM</td>
-<td>Java Client</td>
+<td style="text-align:left">Eureka</td>
+<td style="text-align:left">Dedicated</td>
+<td style="text-align:left">AP</td>
+<td style="text-align:left">Java</td>
+<td style="text-align:left">JVM</td>
+<td style="text-align:left">Java Client</td>
 </tr>
 <tr>
-<td>NSQ (lookupd)</td>
-<td>Dedicated</td>
-<td>AP</td>
-<td>Go</td>
-<td></td>
-<td>Client Binding</td>
+<td style="text-align:left">NSQ (lookupd)</td>
+<td style="text-align:left">Dedicated</td>
+<td style="text-align:left">AP</td>
+<td style="text-align:left">Go</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">Client Binding</td>
 </tr>
 <tr>
-<td>Serf</td>
-<td>Dedicated</td>
-<td>AP</td>
-<td>Go</td>
-<td></td>
-<td>Local CLI</td>
+<td style="text-align:left">Serf</td>
+<td style="text-align:left">Dedicated</td>
+<td style="text-align:left">AP</td>
+<td style="text-align:left">Go</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">Local CLI</td>
 </tr>
 <tr>
-<td>Spotify (DNS)</td>
-<td>Dedicated</td>
-<td>AP</td>
-<td>N/A</td>
-<td>Bind</td>
-<td>DNS Library</td>
+<td style="text-align:left">Spotify (DNS)</td>
+<td style="text-align:left">Dedicated</td>
+<td style="text-align:left">AP</td>
+<td style="text-align:left">N/A</td>
+<td style="text-align:left">Bind</td>
+<td style="text-align:left">DNS Library</td>
 </tr>
 <tr>
-<td>SkyDNS</td>
-<td>Dedicated</td>
-<td>Mixed (2)</td>
-<td>Go</td>
-<td></td>
-<td>HTTP/DNS Library</td>
+<td style="text-align:left">SkyDNS</td>
+<td style="text-align:left">Dedicated</td>
+<td style="text-align:left">Mixed (2)</td>
+<td style="text-align:left">Go</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">HTTP/DNS Library</td>
 </tr>
 </tbody>
 </table>
