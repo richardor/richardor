@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.servercoder.com/"/>
-  <updated>2018-03-27T16:27:00.000Z</updated>
+  <updated>2018-03-30T12:12:14.997Z</updated>
   <id>http://www.servercoder.com/</id>
   
   <author>
@@ -14,6 +14,113 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>服务发现框架选型，Consul还是Zookeeper还是etcd</title>
+    <link href="http://www.servercoder.com/2018/03/30/consul-vs-zookeeper-etcd/"/>
+    <id>http://www.servercoder.com/2018/03/30/consul-vs-zookeeper-etcd/</id>
+    <published>2018-03-30T12:12:14.997Z</published>
+    <updated>2018-03-30T12:12:14.997Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>本文并不介绍服务发现的基本原理。除了一致性算法之外，其他并没有太多高深的算法，网上的资料很容易让大家明白上面是服务发现。<br>想直接查看结论的同学，请直接跳到文末。<br>目前，市面上有非常多的服务发现工具，《<a href="http://jasonwilder.com/blog/2014/02/04/service-discovery-in-the-cloud/" target="_blank" rel="external">Open-Source Service Discovery</a>》一文中列举了如下开源的服务发现工具。<br>|Name|    Type|    AP or CP|    Language|    Dependencies|    Integration|<br>|:—|:—|:—|:—|:—|:—|<br>|Zookeeper|    General    |CP|    Java|    JVM    |Client Binding|<br>|Doozer|    General    |CP|    Go|        |Client Binding|<br>|Etcd|    General|    Mixed (1)    |Go||        Client Binding/HTTP|<br>|SmartStack|    Dedicated|    AP|    Ruby|    haproxy/Zookeeper|    Sidekick (nerve/synapse)|<br>|Eureka|    Dedicated|    AP|    Java|    JVM|    Java Client|<br>|NSQ (lookupd)    |Dedicated|    AP|    Go|        Client Binding|<br>|Serf|    Dedicated|    AP|    Go|        |Local CLI|<br>|Spotify (DNS)    |Dedicated|    AP|    N/A|    Bind|    DNS Library|<br>|SkyDNS|    Dedicated|    Mixed (2)    |Go||        HTTP/DNS Library|<br>(1) If using the consistent parameter, inconsistent reads are possible</p>
+<p>(2) If using a caching DNS client in front of SkyDNS, reads could be inconsistent</p>
+<hr>
+<p>上面表格中，前三个是通用的，后面都是各大公司自己造的轮子，应用范围并不广，我也就不深入研究了。<br>此外，这篇文章是14年写的，当时它并没有研究Consul，放到表格中，Consul则应该是General、CP、Go、No dependency、Http/DNS Library。<br>截止到今天，除了容器编排框架k8s、istio/envoy自己实现了服务发现机制（他们也兼容第三方的服务发现工具），似乎也没有其他的知名的服务发现框架出现了。<br>下面我就zookeeper、etcd、consul这三款进行下比较。</p>
+<h2 id="比较"><a href="#比较" class="headerlink" title="比较"></a>比较</h2><h3 id="zookeeper"><a href="#zookeeper" class="headerlink" title="zookeeper"></a>zookeeper</h3><blockquote>
+<p>ZooKeeper is a centralized service for maintaining configuration information, naming, providing distributed synchronization, and providing group services. All of these kinds of services are used in some form or another by distributed applications. Each time they are implemented there is a lot of work that goes into fixing the bugs and race conditions that are inevitable. Because of the difficulty of implementing these kinds of services, applications initially usually skimp on them ,which make them brittle in the presence of change and difficult to manage. Even when done correctly, different implementations of these services lead to management complexity when the applications are deployed.</p>
+</blockquote>
+<p>官网这么介绍zookeeper的，翻译过来，zookeeper的功能有：</p>
+<ol>
+<li>作为配置信息的存储的中心服务器</li>
+<li>命名服务</li>
+<li>分布式同步</li>
+<li>分组服务</li>
+</ol>
+<p>能看出，zookeeper并不只是作为服务发现框架使用的，它非常庞大。<br>如果只是打算将zookeeper作为服务发现工具，就需要用到其配置存储和分布式同步的功能。前者可以理解成具有一致性的kv存储，后者提供了zookeeper特有的watcher注册于异步通知机制，zookeeper能将节点的状态实时异步通知给zookeeper客户端。</p>
+<h3 id="zookeeper使用"><a href="#zookeeper使用" class="headerlink" title="zookeeper使用"></a>zookeeper使用</h3><p>zookeeper的使用流程如下：</p>
+<ol>
+<li>确保有所选语言的sdk，理论上github上第三方的库有一些，仔细筛选一下应该可以用。</li>
+<li>调用zookeeper接口连接zookeeper服务器。</li>
+<li>注册自身服务</li>
+<li>通过watcher获取监听服务的状态</li>
+<li>服务提供者需自行保持与zookeeper服务器的心跳。</li>
+</ol>
+<p>《<a href="http://www.cnblogs.com/haippy/archive/2013/02/21/2920280.html" target="_blank" rel="external">Zookeeper C API 指南</a>》写了八篇文章介绍了如何使用zookeeper的c语言api。</p>
+<p>总得来说，zookeeper需要胖客户端，每个客户端都需要通过其sdk与zookeeper服务保活，增加了编写程序的复杂性。此外，还提供api实现服务注册与发现逻辑，需要服务的消费者实现服务提供者存活的检测。</p>
+<h3 id="etcd"><a href="#etcd" class="headerlink" title="etcd"></a>etcd</h3><p>etcd是一个采用http协议的分布式键值对存储系统，因其易用，简单。很多系统都采用或支持etcd作为服务发现的一部分，比如kubernetes。但正事因为其只是一个存储系统，如果想要提供完整的服务发现功能，必须搭配一些第三方的工具。<br>比如配合etcd、Registrator、confd组合，就能搭建一个非常简单而强大的服务发现框架。但这种搭建操作就稍微麻烦了点，尤其是相对consul来说。所以etcd大部分场景都是被用来做kv存储，比如kubernetes。</p>
+<h3 id="consul"><a href="#consul" class="headerlink" title="consul"></a>consul</h3><p>相较于etcd、zookeeper，consul最大的特点就是：它整合了用户服务发现普遍的需求，开箱即用，降低了使用的门槛，并不需要任何第三方的工具。代码实现上也足够简单。</p>
+<blockquote>
+<p>Consul has multiple components, but as a whole, it is a tool for discovering and configuring services in your infrastructure. It provides several key features:</p>
+<ol>
+<li>Service Discovery</li>
+<li>Health Checking</li>
+<li>KV Store</li>
+<li>Multi Datacenter</li>
+</ol>
+</blockquote>
+<p>展开了说，consul的功能有：</p>
+<ol>
+<li>通过DNS或HTTP，应用能轻易地找到它们依赖的系统</li>
+<li>提供了多种健康检查方式：http返回码200，内存是否超限，tcp连接是否成功</li>
+<li>kv存储，并提供http api</li>
+<li>多数据中心，这点是zookeeper所不具备的。</li>
+</ol>
+<h3 id="consul使用"><a href="#consul使用" class="headerlink" title="consul使用"></a>consul使用</h3><p>相比于zookeeper的服务发现使用，consul并不需要专门的sdk集成到服务中，因此它不限制任何语言的使用。我们看看consul一般是怎么使用的。</p>
+<ol>
+<li>每台服务器上都要安装一个consul agent。</li>
+<li>consul agent支持通过配置文件注册服务，或者在服务中通过http接口来注册服务。</li>
+<li>注册服务后，consul agent通过指定的健康检查方式，定期检查服务是否存活。</li>
+<li>如果服务想查询其他服务的存活状态，只需要与本机的consul agent发起一次http请求或者dns请求即可。</li>
+</ol>
+<p>简单点说，consul的使用不依赖任何sdk，依靠简单的http请求就能满足服务发现的所有逻辑。<br>不过，服务每次都从consul agent获取其他服务的存活状态，相比于zookeeper的watcher机制，实时性稍差一点，需考虑如何尽可能提高实时性，问题不会很大。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>优点</th>
+<th>缺点</th>
+<th>接口</th>
+<th>一致性算法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>zookeeper</td>
+<td>1.功能强大，不仅仅只是服务发现<br>2.提供watcher机制能实时获取服务提供者的状态<br>3.dubbo等框架支持</td>
+<td>1.没有健康检查<br>2.需在服务中集成sdk，复杂度高<br>3.不支持多数据中心</td>
+<td>sdk</td>
+<td>Paxos</td>
+</tr>
+<tr>
+<td>consul</td>
+<td>1.简单易用，不需要集成sdk<br>2.自带健康检查<br>3.支持多数据中心<br>4.提供web管理界面</td>
+<td>1.不能实时获取服务信息的变化通知</td>
+<td>http/dns</td>
+<td>Raft</td>
+</tr>
+<tr>
+<td>etcd</td>
+<td>1.简单易用，不需要集成sdk<br>2.可配置性强</td>
+<td>1.没有健康检查<br>2.需配合第三方工具一起完成服务发现<br>3.不支持多数据中心</td>
+<td>http</td>
+<td>Raft</td>
+</tr>
+</tbody>
+</table>
+<p>为了以后支持多数据中心，同时为了快速支持不同的语言比如nodejs、python服务，我会选择consul作为我们的服务发现框架，但是实时获取服务信息变化通知的问题需尽可能减小。</p>
+<p><strong>参考文献：</strong><br><a href="https://www.consul.io/intro/vs/index.html" target="_blank" rel="external">Consul vs. Other Software</a><br><a href="http://dockone.io/article/667" target="_blank" rel="external">服务发现：Zookeeper vs etcd vs Consul</a><br><a href="https://skyao.gitbooks.io/learning-consul/content/introduction/consul_vs_other_software.html" target="_blank" rel="external">Consul vs 其他软件</a><br><a href="https://www.slideshare.net/IvanGlushkov/zookeeper-vs-consul-41882991" target="_blank" rel="external">Comparing ZooKeeper and Consul</a></p>
+<hr>
+<p>本文链接：<a href="http://www.servercoder.com/2018/03/30/consul-vs-zookeeper-etcd/">http://www.servercoder.com/2018/03/30/consul-vs-zookeeper-etcd/</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h2&gt;&lt;p&gt;本文并不介绍服务发现的基本原理。除了一致性算法之外，其他并没有太多高深的算法，网上的资料很容易让大家明白上面是服务发现。&lt;br&gt;想直接查看结
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>nginx也许并不是service mesh最好的选择，envoy才是</title>
