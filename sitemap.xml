@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.servercoder.com/2018/05/13/should-we-use-1111-as-dns-server/</loc>
+    
+    <lastmod>2018-05-13T15:19:42.010Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.servercoder.com/2018/03/30/consul-vs-zookeeper-etcd/</loc>
     
     <lastmod>2018-03-30T12:28:15.624Z</lastmod>
@@ -51,6 +58,13 @@
   </url>
   
   <url>
+    <loc>http://www.servercoder.com/categories/index.html</loc>
+    
+    <lastmod>2017-08-14T01:13:57.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.servercoder.com/404.html</loc>
     
     <lastmod>2017-08-14T01:13:57.000Z</lastmod>
@@ -59,13 +73,6 @@
   
   <url>
     <loc>http://www.servercoder.com/tags/index.html</loc>
-    
-    <lastmod>2017-08-14T01:13:57.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.servercoder.com/categories/index.html</loc>
     
     <lastmod>2017-08-14T01:13:57.000Z</lastmod>
     

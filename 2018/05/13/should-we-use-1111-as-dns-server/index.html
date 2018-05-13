@@ -86,17 +86,19 @@
 
 
 
-<meta name="description" content="关于我码龙 Email：richardor@163.com  本文链接：http://www.servercoder.com/about/index.html">
-<meta property="og:type" content="website">
-<meta property="og:title" content="about">
-<meta property="og:url" content="http://www.servercoder.com/about/index.html">
+<meta name="description" content="18年4月1号，cloudflare发布了其公开的DNS解析服务器，并宣称它是最快的、最安全的DNS服务。那是不是意味着我们就马上就可以切换DNS服务器了呢？ 未必，起码大陆地区暂时还不够快。 1.1.1.1优点本文并不是DNS的科普文章，也不会花很多笔墨讲解DNS解析的过程，我前前后后看过很多遍DNS相关原理，可我工作中跟DNS公共服务器打交道的机会几乎没有，所以看完又忘。如果想了解DNS基本知">
+<meta property="og:type" content="article">
+<meta property="og:title" content="是时候使用1.1.1.1作为DNS服务器了吗？">
+<meta property="og:url" content="http://www.servercoder.com/2018/05/13/should-we-use-1111-as-dns-server/index.html">
 <meta property="og:site_name" content="后台服务开发">
-<meta property="og:description" content="关于我码龙 Email：richardor@163.com  本文链接：http://www.servercoder.com/about/index.html">
+<meta property="og:description" content="18年4月1号，cloudflare发布了其公开的DNS解析服务器，并宣称它是最快的、最安全的DNS服务。那是不是意味着我们就马上就可以切换DNS服务器了呢？ 未必，起码大陆地区暂时还不够快。 1.1.1.1优点本文并不是DNS的科普文章，也不会花很多笔墨讲解DNS解析的过程，我前前后后看过很多遍DNS相关原理，可我工作中跟DNS公共服务器打交道的机会几乎没有，所以看完又忘。如果想了解DNS基本知">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-01-24T01:45:21.000Z">
+<meta property="og:image" content="http://p8eh0n2r4.bkt.clouddn.com/18-5-8/97673626.jpg">
+<meta property="og:updated_time" content="2018-05-13T15:19:42.010Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="about">
-<meta name="twitter:description" content="关于我码龙 Email：richardor@163.com  本文链接：http://www.servercoder.com/about/index.html">
+<meta name="twitter:title" content="是时候使用1.1.1.1作为DNS服务器了吗？">
+<meta name="twitter:description" content="18年4月1号，cloudflare发布了其公开的DNS解析服务器，并宣称它是最快的、最安全的DNS服务。那是不是意味着我们就马上就可以切换DNS服务器了呢？ 未必，起码大陆地区暂时还不够快。 1.1.1.1优点本文并不是DNS的科普文章，也不会花很多笔墨讲解DNS解析的过程，我前前后后看过很多遍DNS相关原理，可我工作中跟DNS公共服务器打交道的机会几乎没有，所以看完又忘。如果想了解DNS基本知">
+<meta name="twitter:image" content="http://p8eh0n2r4.bkt.clouddn.com/18-5-8/97673626.jpg">
 
 
 
@@ -114,13 +116,7 @@
   };
 </script>
 
-  <title>
-  
-
-  
-    about | 后台服务开发
-  
-</title>
+  <title> 是时候使用1.1.1.1作为DNS服务器了吗？ | 后台服务开发 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -141,7 +137,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -274,13 +270,139 @@
 
   <div id="posts" class="posts-expand">
     
-    
-      <h2 id="关于我"><a href="#关于我" class="headerlink" title="关于我"></a>关于我</h2><p>码龙</p>
-<p>Email：richardor@163.com</p>
-<hr>
-<p>本文链接：<a href="http://www.servercoder.com/about/index.html">http://www.servercoder.com/about/index.html</a></p>
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                是时候使用1.1.1.1作为DNS服务器了吗？
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2018-05-13T09:29:44+08:00" content="2018-05-13">
+              2018-05-13
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2018/05/13/should-we-use-1111-as-dns-server/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/05/13/should-we-use-1111-as-dns-server/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+              &nbsp; | &nbsp;
+              <span class="page-pv"><i class="fa fa-file-o"></i>浏览
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+              </span>
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>18年4月1号，cloudflare发布了其公开的DNS解析服务器，并宣称它是最快的、最安全的DNS服务。那是不是意味着我们就马上就可以切换DNS服务器了呢？</p>
+<p>未必，起码大陆地区暂时还不够快。</p>
+<h2 id="1-1-1-1优点"><a href="#1-1-1-1优点" class="headerlink" title="1.1.1.1优点"></a>1.1.1.1优点</h2><p>本文并不是DNS的科普文章，也不会花很多笔墨讲解DNS解析的过程，我前前后后看过很多遍DNS相关原理，可我工作中跟DNS公共服务器打交道的机会几乎没有，所以看完又忘。如果想了解DNS基本知识的，可移步至阮一峰的<a href="http://www.ruanyifeng.com/blog/2016/06/dns.html" target="_blank" rel="external">《DNS 原理入门》</a>。</p>
+<p>市面上公共DNS不少，ibm、google、百度、阿里、腾讯、114、还有各大运营商自己的DNS服务器。那我们为什么还要评估1.1.1.1呢？<br>很简单，因为他们大多都是流氓，DNS劫持还算小打小闹，高级一点的给你弄点http劫持，更有甚者还给你强行安装软件。</p>
+<p>1.1.1.1的优点：</p>
+<ol>
+<li>快。<br>Cloudflare在全球有超过1000台服务器。我们来看看权威DNS性能测试平台的数据。<br><img src="http://p8eh0n2r4.bkt.clouddn.com/18-5-8/97673626.jpg" alt="img"><br>有兴趣的同学可以看一下，<a href="https://www.dnsperf.com/#!dns-resolvers" target="_blank" rel="external">DNSPerf</a>测试的全球的DNS服务器，确实1.1.1.1在全球几大洲的平均速度都是最快的。</li>
+<li>安全。<br> 我们上网时或多或少会遇到下面这些情况：<br> <strong>DNS劫持</strong>：访问公司A的网站，结果打开的却是A的竞争对手B的网站，或者索性就不给打开。<br> <strong>http劫持</strong>：DNS劫持算低级的，明白人一眼就能看出问题来，所以现在很少有DNS服务器提供商做DNS劫持了，现在一般都是http劫持。简单的说，就是所有请求都正常响应，但是会你的网页里面多加一段脚本，比如右下角的广告啊。遇到这种事情，除了浏览器安装AdBlocks插件屏蔽广告以外，根本没办法防御。<br> <strong>数据泄露</strong>：http劫持是明枪，数据泄露就是暗箭了。我想很多人都有这样的精力，百度搜索一下某某东西，结果打开京东或者淘宝，立马就能自动推荐给你了。这也还好，毕竟给你提供了便利，有点人工智能的味道，只要你不要搜索一些隐私产品，不然就尴尬了。可如果用来做坏事，想想都可怕。目前大部分的公开DNS服务器都在收集这些数据。<br> <br> 而1.1.1.1则宣称自己并不保存任何数据，就连日志数据也仅仅只是保留24小时。相比其他DNS服务提供商，这样已经很有良心了。</li>
+</ol>
+<h2 id="那我们该怎么办？"><a href="#那我们该怎么办？" class="headerlink" title="那我们该怎么办？"></a>那我们该怎么办？</h2><p>既然1.1.1.1又快又安全，那还等什么，能赶紧用上吗？<br>很显然，大陆目前还不行。究其原因，我想主要是1.1.1.1还没在大陆部署节点有关。尽管1.1.1.1的公司cloudflare与百度很早就建立了合作伙伴关系，用于改善国内访问cloudflare产品的访问速度，但很明显该合作不涉及1.1.1.1，我个人觉得未来可能也不太可能通过百度的合作来提升访问速度，因为百度有自己的公开DNS服务，他们还靠这个挣钱呢。<br>其次，很多交换机默认使用了1.1.1.1作为默认ip，尤其是企业交换机。要想能使用1.1.1.1还需要坐等交换机的升级。</p>
+<p>总的来说，要想在大陆使用上1.1.1.1可能得等到半年以后，至于最终是否能落地，还是取决于cloudflare是否会考虑大陆几亿网民的需求了。</p>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ol>
+<li><a href="https://www.cloudflare.com/learning/dns/what-is-1.1.1.1/" target="_blank" rel="external">https://www.cloudflare.com/learning/dns/what-is-1.1.1.1/</a><br></li>
+</ol>
+<hr>
+<p>本文链接：<a href="http://www.servercoder.com/2018/05/13/should-we-use-1111-as-dns-server/">http://www.servercoder.com/2018/05/13/should-we-use-1111-as-dns-server/</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/30/consul-vs-zookeeper-etcd/" rel="next" title="服务发现框架选型，Consul还是Zookeeper还是etcd">
+                <i class="fa fa-chevron-left"></i> 服务发现框架选型，Consul还是Zookeeper还是etcd
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -314,8 +436,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="https://avatars1.githubusercontent.com/u/32269?v=3&s=460"
@@ -401,6 +532,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-1-1优点"><span class="nav-number">1.</span> <span class="nav-text">1.1.1.1优点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#那我们该怎么办？"><span class="nav-number">2.</span> <span class="nav-text">那我们该怎么办？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考文献"><span class="nav-number">3.</span> <span class="nav-text">参考文献</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -513,6 +655,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
@@ -529,9 +675,9 @@
 
     <script type="text/javascript">
       var disqus_shortname = 'programer';
-      var disqus_identifier = 'about/index.html';
-      var disqus_title = 'about';
-      var disqus_url = 'http://www.servercoder.com/about/index.html';
+      var disqus_identifier = '2018/05/13/should-we-use-1111-as-dns-server/';
+      var disqus_title = '是时候使用1.1.1.1作为DNS服务器了吗？';
+      var disqus_url = 'http://www.servercoder.com/2018/05/13/should-we-use-1111-as-dns-server/';
 
       function run_disqus_script(disqus_script){
         var dsq = document.createElement('script');
