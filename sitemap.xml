@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.servercoder.com/2018/05/17/tcp-safe/</loc>
+    
+    <lastmod>2018-05-16T16:15:33.048Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.servercoder.com/2018/05/13/should-we-use-1111-as-dns-server/</loc>
     
     <lastmod>2018-05-13T15:19:42.010Z</lastmod>
