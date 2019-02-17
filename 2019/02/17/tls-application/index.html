@@ -96,17 +96,17 @@
 
 
 
-  <meta name="description" content="写在前面，这并不是一篇leanote的广告。  这些年，我试用过多款云笔记产品，作为一个程序员，我的需求很简单，支持markdown、多终端（windows+mac）同步，界面不要太丑，免费，偶尔导出到pdf。但就是这么简单的需求，似乎很难满足。 市面上我所知道的云笔记产品有：有道云笔记、Evernote、Quiver、Quip、马克飞象， 当然还有人直接使用markdown编辑器，每次保存时，">
+  <meta name="description" content="证书相关TLS（Transport Layer Security）意为传输层安全协议，目前较常见的实现是OpenSSL, 而BoringSSL是google基于OpenSSL创建的，只是为了自己的需要，并不是通用的实现，所以如无必要，我们还是直接使用OpenSSL比较好。TLS是基于X.509证书标准的，其标准是RFC5280。 证书格式目前支持两种格式：PEM和DER。其中DER是二进制格式，而">
 <meta property="og:type" content="article">
-<meta property="og:title" content="基于开源leanote打造多终端同步云笔记应用">
-<meta property="og:url" content="http://www.servercoder.com/2018/03/11/leanote-private/index.html">
+<meta property="og:title" content="TLS应用开发相关知识">
+<meta property="og:url" content="http://www.servercoder.com/2019/02/17/tls-application/index.html">
 <meta property="og:site_name" content="后台服务开发">
-<meta property="og:description" content="写在前面，这并不是一篇leanote的广告。  这些年，我试用过多款云笔记产品，作为一个程序员，我的需求很简单，支持markdown、多终端（windows+mac）同步，界面不要太丑，免费，偶尔导出到pdf。但就是这么简单的需求，似乎很难满足。 市面上我所知道的云笔记产品有：有道云笔记、Evernote、Quiver、Quip、马克飞象， 当然还有人直接使用markdown编辑器，每次保存时，">
+<meta property="og:description" content="证书相关TLS（Transport Layer Security）意为传输层安全协议，目前较常见的实现是OpenSSL, 而BoringSSL是google基于OpenSSL创建的，只是为了自己的需要，并不是通用的实现，所以如无必要，我们还是直接使用OpenSSL比较好。TLS是基于X.509证书标准的，其标准是RFC5280。 证书格式目前支持两种格式：PEM和DER。其中DER是二进制格式，而">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-11T07:47:05.914Z">
+<meta property="og:updated_time" content="2019-02-17T12:40:56.106Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="基于开源leanote打造多终端同步云笔记应用">
-<meta name="twitter:description" content="写在前面，这并不是一篇leanote的广告。  这些年，我试用过多款云笔记产品，作为一个程序员，我的需求很简单，支持markdown、多终端（windows+mac）同步，界面不要太丑，免费，偶尔导出到pdf。但就是这么简单的需求，似乎很难满足。 市面上我所知道的云笔记产品有：有道云笔记、Evernote、Quiver、Quip、马克飞象， 当然还有人直接使用markdown编辑器，每次保存时，">
+<meta name="twitter:title" content="TLS应用开发相关知识">
+<meta name="twitter:description" content="证书相关TLS（Transport Layer Security）意为传输层安全协议，目前较常见的实现是OpenSSL, 而BoringSSL是google基于OpenSSL创建的，只是为了自己的需要，并不是通用的实现，所以如无必要，我们还是直接使用OpenSSL比较好。TLS是基于X.509证书标准的，其标准是RFC5280。 证书格式目前支持两种格式：PEM和DER。其中DER是二进制格式，而">
 
 
 
@@ -115,7 +115,7 @@
 
 
 
-  <link rel="canonical" href="http://www.servercoder.com/2018/03/11/leanote-private/">
+  <link rel="canonical" href="http://www.servercoder.com/2019/02/17/tls-application/">
 
 
 
@@ -125,7 +125,7 @@
   };
 </script>
 
-  <title>基于开源leanote打造多终端同步云笔记应用 | 后台服务开发</title>
+  <title>TLS应用开发相关知识 | 后台服务开发</title>
   
 
 
@@ -290,7 +290,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.servercoder.com/2018/03/11/leanote-private/">
+    <link itemprop="mainEntityOfPage" href="http://www.servercoder.com/2019/02/17/tls-application/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="码龙">
@@ -307,7 +307,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">基于开源leanote打造多终端同步云笔记应用
+          <h1 class="post-title" itemprop="name headline">TLS应用开发相关知识
 
               
             
@@ -333,7 +333,7 @@
                 
               
 
-              <time title="Created: 2018-03-11 15:47:05" itemprop="dateCreated datePublished" datetime="2018-03-11T15:47:05+08:00">2018-03-11</time>
+              <time title="Created: 2019-02-17 20:40:56" itemprop="dateCreated datePublished" datetime="2019-02-17T20:40:56+08:00">2019-02-17</time>
             
 
             
@@ -352,8 +352,8 @@
                 </span>
             
                 <span class="post-meta-item-text">Comments: </span>
-                <a href="/2018/03/11/leanote-private/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/03/11/leanote-private/" itemprop="commentCount"></span>
+                <a href="/2019/02/17/tls-application/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2019/02/17/tls-application/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -388,27 +388,26 @@
       
 
       
-        <blockquote>
-<p>写在前面，这并不是一篇leanote的广告。</p>
-</blockquote>
-<p>这些年，我试用过多款云笔记产品，作为一个程序员，我的需求很简单，支持markdown、多终端（windows+mac）同步，界面不要太丑，免费，偶尔导出到pdf。<br>但就是这么简单的需求，似乎很难满足。</p>
-<p>市面上我所知道的云笔记产品有：有道云笔记、Evernote、Quiver、Quip、马克飞象， 当然还有人直接使用markdown编辑器，每次保存时，手动或自动推送到github上。</p>
-<p>下面说说这些软件或多或少让我不太满意的地方：</p>
+        <h1 id="证书相关"><a href="#证书相关" class="headerlink" title="证书相关"></a>证书相关</h1><p>TLS（Transport Layer Security）意为传输层安全协议，目前较常见的实现是OpenSSL, 而BoringSSL是google基于OpenSSL创建的，只是为了自己的需要，并不是通用的实现，所以如无必要，我们还是直接使用OpenSSL比较好。<br>TLS是基于X.509证书标准的，其标准是RFC5280。</p>
+<h2 id="证书格式"><a href="#证书格式" class="headerlink" title="证书格式"></a>证书格式</h2><p>目前支持两种格式：PEM和DER。<br>其中DER是二进制格式，而PEM则是在DER的基础上进行BASE64编码后，并存放在存放在”—–BEGIN CERTIFICATE—–”和”—–END CERTIFICATE—–”之中。<br>查看PEM格式证书信息的命令：openssl x509 -in certificate.pem -text -noout<br>查看DER格式证书信息的命令：openssl x509 -in certificate.der -inform der -text -noout</p>
+<h2 id="证书扩展名"><a href="#证书扩展名" class="headerlink" title="证书扩展名"></a>证书扩展名</h2><p>这是比较误导人的地方,虽然我们已经知道有PEM和DER这两种编码格式,但文件扩展名并不一定就叫”PEM”或者”DER”,常见的扩展名除了PEM和DER还有以下这些,它们除了编码格式可能不同之外,内容也有差别,但大多数都能相互转换编码格式.</p>
 <ol>
-<li>EverNote确实是名气最大的笔记软件，但重在收集，一直也不支持markdown。</li>
-<li>有道云笔记在我开始使用的时候，就丑的不能再丑，写这篇文章的时候特地重新使用了一下，交互比几年前清爽多了，也支持mardown，就是免费版带广告，不能导出文档。</li>
-<li>Quiver是我见过的支持的写markdown最舒服，交互最爽的mac版本地笔记软件，就是没有windows版，也不能同步，只能说遗憾了。mac版收费，你知道怎么免费使用的。</li>
-<li>Quip支持多终端，没有使用限制，交互简单，能导出文档，能多终端同步。如果不是因为markdown需求，我是不可能抛弃使用了半年的Quip的</li>
-<li>本地编辑，利用github的public repository做同步，确实够灵活，就是没有了隐私，尤其是设计到机密的文档，一定要慎重。</li>
+<li>CRT - CRT应该是certificate的三个字母,其实还是证书的意思,常见于*NIX系统,有可能是PEM编码,也有可能是DER编码,大多数应该是PEM编码,相信你已经知道怎么辨别.</li>
+<li>CER - 还是certificate,还是证书,常见于Windows系统,同样的,可能是PEM编码,也可能是DER编码,大多数应该是DER编码.</li>
+<li>KEY - 通常用来存放一个公钥或者私钥,并非X.509证书,编码同样的,可能是PEM,也可能是DER.<br>查看KEY的办法:openssl rsa -in mykey.key -text -noout<br>如果是DER格式的话,同理应该这样了:openssl rsa -in mykey.key -text -noout -inform der</li>
+<li>CSR - Certificate Signing Request,即证书签名请求,这个并不是证书,而是向权威证书颁发机构获得签名证书的申请,其核心内容是一个公钥(当然还附带了一些别的信息),在生成这个申请的时候,同时也会生成一个私钥,私钥要自己保管好.做过iOS APP的朋友都应该知道是怎么向苹果申请开发者证书的吧.<br>查看的办法:openssl req -noout -text -in my.csr (如果是DER格式的话照旧加上-inform der,这里不写了)</li>
+<li>PFX/P12 - predecessor of PKCS#12,对*nix服务器来说,一般CRT和KEY是分开存放在不同文件中的,但Windows的IIS则将它们存在一个PFX文件中,(因此这个文件包含了证书及私钥)这样会不会不安全？应该不会,PFX通常会有一个”提取密码”,你想把里面的东西读取出来的话,它就要求你提供提取密码,PFX使用的时DER编码,如何把PFX转换为PEM编码？<br>openssl pkcs12 -in for-iis.pfx -out for-iis.pem -nodes<br>这个时候会提示你输入提取代码. for-iis.pem就是可读的文本.<br>生成pfx的命令类似这样:openssl pkcs12 -export -in certificate.crt -inkey privateKey.key -out certificate.pfx -certfile CACert.crt<br>其中CACert.crt是CA(权威证书颁发机构)的根证书,有的话也通过-certfile参数一起带进去.这么看来,PFX其实是个证书密钥库.</li>
+<li>JKS - 即Java Key Storage,这是Java的专利,跟OpenSSL关系不大,利用Java的一个叫”keytool”的工具,可以将PFX转为JKS,当然了,keytool也能直接生成JKS,不过在此就不多表了.<h2 id="获得证书"><a href="#获得证书" class="headerlink" title="获得证书"></a>获得证书</h2>有两种方式：申请或者自签名，调试时自签名就够了。</li>
+<li><p>向权威证书颁发机构申请证书<br>用这命令生成一个csr: openssl req -newkey rsa:2048 -new -nodes -keyout my.key -out my.csr<br>把csr交给权威证书颁发机构,权威证书颁发机构对此进行签名,完成.保留好csr,当权威证书颁发机构颁发的证书过期的时候,你还可以用同样的csr来申请新的证书,key保持不变.</p>
+</li>
+<li><p>生成自签名的证书<br>openssl req -newkey rsa:2048 -new -nodes -x509 -days 3650 -keyout key.pem -out cert.pem<br>在生成证书的过程中会要你填一堆的东西,其实真正要填的只有Common Name,通常填写你服务器的域名,如”yourcompany.com”,或者你服务器的IP地址,其它都可以留空的.<br>生产环境中还是不要使用自签的证书,否则浏览器会不认,或者如果你是企业应用的话能够强制让用户的浏览器接受你的自签证书也行.向权威机构要证书通常是要钱的,但现在也有免费的,仅仅需要一个简单的域名验证即可.有兴趣的话查查”沃通数字证书”.</p>
+<h1 id="最佳实践"><a href="#最佳实践" class="headerlink" title="最佳实践"></a>最佳实践</h1></li>
 </ol>
-<h2 id="leanote功能"><a href="#leanote功能" class="headerlink" title="leanote功能"></a>leanote功能</h2><p>有一天，我突然在开源中国上见到了leanote，当时还没有稳定，只要推广用户就能增加一个月的旗舰会员。使用下来后发现，它竟然满足了我所有的需求：markdown、多终端同步、无限制历史记录、免费、能导出到各种文档。各重要的是，开源！</p>
-<p>后来发现leanote并不支持使用markdown画流程图、时序图等后，一度想换掉，万幸leanote的开发人员集成了这些图表功能，得给他们点个赞。</p>
-<p>当然，leanote也有缺点，我身边很多人不想用的原因也很直接，界面丑！说实在，如果不是实在没有别适合我的软件，我也不太想用leanote的。</p>
-<p>此外，leanote还支持一键发布到博客，对于那些懒得自己搭建博客的同学来说，简直就是太方便了。</p>
-<h2 id="如何免费用leanote"><a href="#如何免费用leanote" class="headerlink" title="如何免费用leanote"></a>如何免费用leanote</h2><p>使用leanote一年多了，现在没有了leanote旗舰会员，如果要想使用旗舰套餐，每年得给leanote贡献150元，说实在，我觉得这个定价有点贵。<br>既然leanote是开源的，正好我手上又有服务器，那就私有化部署咯。</p>
-<p>只要leanote不告我，我承诺3年内不关服，毕竟我自己也要一直使用嘛。blog.servercoder.com，有需要的同学可以自行注册使用。</p>
+<h1 id="开发流程"><a href="#开发流程" class="headerlink" title="开发流程"></a>开发流程</h1><h1 id="wireshark抓包"><a href="#wireshark抓包" class="headerlink" title="wireshark抓包"></a>wireshark抓包</h1><h1 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h1><ol>
+<li>证书的相关知识转载自：<a href="https://www.cnblogs.com/guogangj/p/4118605.html" target="_blank" rel="noopener">那些证书相关的玩意儿(SSL,X.509,PEM,DER,CRT,CER,KEY,CSR,P12等)</a></li>
+</ol>
 <hr>
-<p>本文链接：<a href="http://www.servercoder.com/2018/03/11/leanote-private/">http://www.servercoder.com/2018/03/11/leanote-private/</a></p>
+<p>本文链接：<a href="http://www.servercoder.com/2019/02/17/tls-application/">http://www.servercoder.com/2019/02/17/tls-application/</a></p>
 
       
     </div>
@@ -439,8 +438,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/01/10/protobuf-usages/" rel="next" title="你真的用对protobuf了吗？">
-                <i class="fa fa-chevron-left"></i> 你真的用对protobuf了吗？
+              <a href="/2018/05/17/tcp-safe/" rel="next" title="tcp通信应用的安全如何保证">
+                <i class="fa fa-chevron-left"></i> tcp通信应用的安全如何保证
               </a>
             
           </div>
@@ -448,10 +447,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/03/27/envoy-grpc-not-nginx/" rel="prev" title="nginx也许并不是service mesh最好的选择，envoy才是">
-                nginx也许并不是service mesh最好的选择，envoy才是 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -575,7 +570,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#leanote功能"><span class="nav-number">1.</span> <span class="nav-text">leanote功能</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何免费用leanote"><span class="nav-number">2.</span> <span class="nav-text">如何免费用leanote</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#证书相关"><span class="nav-number">1.</span> <span class="nav-text">证书相关</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#证书格式"><span class="nav-number">1.1.</span> <span class="nav-text">证书格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#证书扩展名"><span class="nav-number">1.2.</span> <span class="nav-text">证书扩展名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获得证书"><span class="nav-number">1.3.</span> <span class="nav-text">获得证书</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#最佳实践"><span class="nav-number">2.</span> <span class="nav-text">最佳实践</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#开发流程"><span class="nav-number">3.</span> <span class="nav-text">开发流程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#wireshark抓包"><span class="nav-number">4.</span> <span class="nav-text">wireshark抓包</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考文档"><span class="nav-number">5.</span> <span class="nav-text">参考文档</span></a></li></ol></div>
             
 
           </div>
@@ -753,9 +748,9 @@
 
 <script>
   var disqus_config = function() {
-    this.page.url = "http://www.servercoder.com/2018/03/11/leanote-private/";
-    this.page.identifier = "2018/03/11/leanote-private/";
-    this.page.title = '基于开源leanote打造多终端同步云笔记应用';
+    this.page.url = "http://www.servercoder.com/2019/02/17/tls-application/";
+    this.page.identifier = "2019/02/17/tls-application/";
+    this.page.title = 'TLS应用开发相关知识';
     };
   function loadComments() {
     var d = document, s = d.createElement('script');
