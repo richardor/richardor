@@ -354,6 +354,13 @@ ___
           
 
   
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+      </div>
+    </div>
+
+  
 
 
 
@@ -568,6 +575,29 @@ ___
 
 
   
+  
+  <script id="dsq-count-scr" src="https://servercoder.disqus.com/count.js" async></script>
+
+
+<script>
+  var disqus_config = function() {
+    this.page.url = "http://www.servercoder.com/404.html";
+    this.page.identifier = "404.html";
+    this.page.title = '';
+    };
+  function loadComments() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://servercoder.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', '' + +new Date());
+    (d.head || d.body).appendChild(s);
+  }
+  
+    loadComments();
+  
+</script>
+
+
+
 
 
   
