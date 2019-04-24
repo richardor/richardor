@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.servercoder.com/"/>
-  <updated>2019-04-24T04:03:27.826Z</updated>
+  <updated>2019-04-24T14:56:22.062Z</updated>
   <id>http://www.servercoder.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>一文读懂gpu计算的前世今生</title>
+    <link href="http://www.servercoder.com/2019/04/24/gpu-started/"/>
+    <id>http://www.servercoder.com/2019/04/24/gpu-started/</id>
+    <published>2019-04-24T14:55:53.081Z</published>
+    <updated>2019-04-24T14:56:22.062Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>intel提出了摩尔定律，每18个月，芯片的性能就提升一倍。经过这么多年的发展，摩尔定律已经不再适用，究其原因并非芯片厂商无法提升性能，而是功耗太大，大大超过了用户的预期。</p><p>举个例子，2009年全球所有超级计算机中排名第二JUGENE，由73728块四核的PowerPc 450处理器组成，每一颗核心的浮点计算能力为3.4G。而当时同期，NVIDIA的一块售价6000美金的Tesla S1070显卡的浮点计算能力是4.3T。我们再来看看功耗。</p><table><thead><tr><th>参数</th><th>JUGENE</th><th>NVIDIA Tesla S1070</th></tr></thead><tbody><tr><td>计算能力/TFLOPS</td><td>825</td><td>4.3</td></tr><tr><td>体积</td><td>占据整个仓库，有72个机柜</td><td>一台普通个人pc，可以装两块</td></tr><tr><td>功耗/W</td><td>3 000 000</td><td>峰值800</td></tr></tbody></table><p>差距一目了然，这也是为什么最新的超级计算机已经不再完全由gpu组成，而是多块cpu+gpu的异构计算。</p><p>再说回消费级市场，随着机器学习在各行各业的发展，比如直播美颜，基于数据预测的处理等等，要想基于cpu完成实时运算基本不可能。此外还有三维渲染和图形操作，这些操作的运算量巨大，就算是目前顶级的i7都无法胜任。</p><h2 id="为什么gpu比cpu快这么多？"><a href="#为什么gpu比cpu快这么多？" class="headerlink" title="为什么gpu比cpu快这么多？"></a>为什么gpu比cpu快这么多？</h2><p>gpu与cpu计算快这么多的原因有如下几点：</p><ul><li>gpu中用于计算的晶体管比例比cpu多很多</li><li>cpu设计的重点是：复杂的缓存系统、分支预测系统和各种逻辑。</li></ul><p>简单的说，就是gpu本身就是只用来做计算的，而同样面积的cpu芯片中，大部分是用来处理缓存、分支预测和逻辑运算的。自然gpu的计算速度就快很多了。</p><h2 id="gpu的发展阶段"><a href="#gpu的发展阶段" class="headerlink" title="gpu的发展阶段"></a>gpu的发展阶段</h2><p>gpu的历史上经历了四个阶段。</p><table><thead><tr><th>时间</th><th>gpu特点</th></tr></thead><tbody><tr><td>1991年以前</td><td>显示功能在cpu上实现</td></tr><tr><td>1991-2001年</td><td>多为二维图形运算，功能电单一</td></tr><tr><td>2001-2006年</td><td>可编程图形处理器</td></tr><tr><td>2006年至今</td><td>统一着色器模型、gpgpu</td></tr></tbody></table><p>可编程图像处理器推出后，gpu中的着色器和着色语言逐渐被人用来做一些复杂的科学运算。</p><p>直到06年后，统一着色器模型推出后，着色器将不再仅有单一的功能，每一个着色器既可以作为顶点着色器，也可以作为片段着色器，这样使得gpu的计算能力进一步大大提升。</p><blockquote><p>GPGPU代表General Purpose Computing on Graphics Processing Unit。就是图形处理器的通用计算技术。</p></blockquote><h2 id="常见的gpgpu编程技术"><a href="#常见的gpgpu编程技术" class="headerlink" title="常见的gpgpu编程技术"></a>常见的gpgpu编程技术</h2><p>我们常说的gpgpu编程技术有opengl、direct3d、cuda、opencl、metal，未来可能会有越来越多的技术推出。</p><p>我不打算搬出网上的定义，搬出来了我也不记得，没啥意义。</p><p>通俗点讲，有这么几点：</p><ul><li>除了cuda是NVIDIA推出的图形编程接口，只适用于该公司自己的显卡，编程效率更高。</li><li>其他都是软件公司推出的通用接口，比如direct3d是微软推出的，但其跨平台支持并不好，越来越少的人使用。opengl、opencl、metal都是苹果推出的接口和规范。</li><li>opengl的跨平台性最好，支持绝大部分平台和架构。但苹果有计划在自己的设备上慢慢用metal代替opengl。opencl是支持异构资源的计算接口，跨平台和架构性最好，同时支持cpu、gpu、fpga等平台的计算。</li></ul><h2 id="gpu编程的流程"><a href="#gpu编程的流程" class="headerlink" title="gpu编程的流程"></a>gpu编程的流程</h2><p>下图是一个经典gpgpu计算流程。<br><img src="http://tuchuang.servercoder.com/15560935399620.jpg" alt>。</p><p>gpu运算过程都需要经过图中的这些步骤，本文先不详细展开了。</p><h2 id="异构计算"><a href="#异构计算" class="headerlink" title="异构计算"></a>异构计算</h2><p>额外再多提一个异构计算吧。</p><p>前面提到opengl支持市面上很多的平台，尤其是消费级产品，比如pc、android、mac。但它必须要这些设备都带有gpu单元，对于那些没有gpu单元的设备来说，就无能为力了。同时，尽管对android和mac都有支持，但他们的opengl版本不一样，接口调用也不太一样。此外，对于一些嵌入式芯片支持也不是很好。</p><p>苹果在2008年，向Khronos提交了一份跨平台的计算框架，就是我们提到的opencl。它真正做到了平台无关性和操作系统无关性。这个框架在实现的过程中参考了很多cuda的接口设计，所以对于熟悉cuda编程的人来说，上手opencl是很容易的。</p><p>不过，既然是跨平台的方案，那必然在效率上相比于cuda就会稍弱一点，毕竟有一层封装。</p><h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p>本书很多信息都参考自《GPGPU编程技术  从GLSL、CUDA到OpenCL》，也可以当成是读后感。如有侵权，请联系我删除，谢谢。</p><hr><p>本文链接：<a href="http://www.servercoder.com/2019/04/24/gpu-started/">http://www.servercoder.com/2019/04/24/gpu-started/</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h2&gt;&lt;p&gt;intel提出了摩尔定律，每18个月，芯片的性能就提升一倍。经过这么多年的发展，摩尔定律已经不再适用，究其原因并非芯片厂商无法提升性能，而是
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>详读webrtc的视频统计信息之延迟、抖动与丢包</title>
