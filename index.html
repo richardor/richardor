@@ -317,7 +317,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2019/04/24/webrtc-statistics/" class="post-title-link" itemprop="url">Untitled</a>
+                <a href="/2019/04/24/webrtc-statistics/" class="post-title-link" itemprop="url">详读webrtc的视频统计信息之延迟、抖动与丢包</a>
               
             
           </h1>
@@ -342,9 +342,13 @@
                 
               
 
-              <time title="Created: 2019-04-24 12:01:04" itemprop="dateCreated datePublished" datetime="2019-04-24T12:01:04+08:00">2019-04-24</time>
+              <time title="Created: 2019-04-24 12:01:04 / Modified: 12:03:27" itemprop="dateCreated datePublished" datetime="2019-04-24T12:01:04+08:00">2019-04-24</time>
             
 
+            
+              
+
+              
             
           </span>
 
@@ -392,7 +396,9 @@
       
         
           
-            <p>TC内部对视频<code>上下行延时、抖动、丢包</code>如何更新，上层又怎么获取到这些统计信息的。对应的<code>WebRTC版本：63</code>。</p>
+            <h2 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h2><blockquote>
+<p>这篇文章主要想说明的是WebRTC内部对视频<code>上下行延时、抖动、丢包</code>如何更新，上层又怎么获取到这些统计信息的。对应的<code>WebRTC版本：63</code>。</p>
+</blockquote>
 <h2 id="二、背景"><a href="#二、背景" class="headerlink" title="二、背景"></a>二、背景</h2><blockquote>
 <p>最近在内网情况下测试视频会议，视频下行延时很大，很多时候超过<code>100ms</code>。另外，视频的上下行抖动总是稳定在<code>30~40ms</code>这个区间。这些统计在内网环境下是不正常的，于是决定看看是哪里导致这些问题的。</p>
 <p>在解决这些问题的过程中，也对WebRTC内部视频统计数据做了一次梳理。</p>

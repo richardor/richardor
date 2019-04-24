@@ -106,12 +106,12 @@
 </script>
 
 
-  <meta name="description" content="TC内部对视频上下行延时、抖动、丢包如何更新，上层又怎么获取到这些统计信息的。对应的WebRTC版本：63。 二、背景 最近在内网情况下测试视频会议，视频下行延时很大，很多时候超过100ms。另外，视频的上下行抖动总是稳定在30~40ms这个区间。这些统计在内网环境下是不正常的，于是决定看看是哪里导致这些问题的。 在解决这些问题的过程中，也对WebRTC内部视频统计数据做了一次梳理。 阅读这篇文章">
+  <meta name="description" content="一、前言 这篇文章主要想说明的是WebRTC内部对视频上下行延时、抖动、丢包如何更新，上层又怎么获取到这些统计信息的。对应的WebRTC版本：63。  二、背景 最近在内网情况下测试视频会议，视频下行延时很大，很多时候超过100ms。另外，视频的上下行抖动总是稳定在30~40ms这个区间。这些统计在内网环境下是不正常的，于是决定看看是哪里导致这些问题的。 在解决这些问题的过程中，也对WebRTC内">
 <meta property="og:type" content="article">
-<meta property="og:title" content="后台服务开发">
+<meta property="og:title" content="详读webrtc的视频统计信息之延迟、抖动与丢包">
 <meta property="og:url" content="http://www.servercoder.com/2019/04/24/webrtc-statistics/index.html">
 <meta property="og:site_name" content="后台服务开发">
-<meta property="og:description" content="TC内部对视频上下行延时、抖动、丢包如何更新，上层又怎么获取到这些统计信息的。对应的WebRTC版本：63。 二、背景 最近在内网情况下测试视频会议，视频下行延时很大，很多时候超过100ms。另外，视频的上下行抖动总是稳定在30~40ms这个区间。这些统计在内网环境下是不正常的，于是决定看看是哪里导致这些问题的。 在解决这些问题的过程中，也对WebRTC内部视频统计数据做了一次梳理。 阅读这篇文章">
+<meta property="og:description" content="一、前言 这篇文章主要想说明的是WebRTC内部对视频上下行延时、抖动、丢包如何更新，上层又怎么获取到这些统计信息的。对应的WebRTC版本：63。  二、背景 最近在内网情况下测试视频会议，视频下行延时很大，很多时候超过100ms。另外，视频的上下行抖动总是稳定在30~40ms这个区间。这些统计在内网环境下是不正常的，于是决定看看是哪里导致这些问题的。 在解决这些问题的过程中，也对WebRTC内">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://tuchuang.servercoder.com/webrtc-statistics.png">
 <meta property="og:image" content="http://tuchuang.servercoder.com/sr.png">
@@ -127,10 +127,10 @@
 <meta property="og:image" content="http://tuchuang.servercoder.com/%E6%8A%96%E5%8A%A8%E6%9B%B4%E6%96%B0%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5.png">
 <meta property="og:image" content="http://tuchuang.servercoder.com/%E4%B8%A2%E5%8C%85%E8%AE%A1%E7%AE%97.png">
 <meta property="og:image" content="http://tuchuang.servercoder.com/%E4%B8%A2%E5%8C%85%E6%9B%B4%E6%96%B0%E7%AC%AC%E4%BA%8C%E9%98%B6%E6%AE%B5.png">
-<meta property="og:updated_time" content="2019-04-24T04:01:04.747Z">
+<meta property="og:updated_time" content="2019-04-24T04:03:27.826Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="后台服务开发">
-<meta name="twitter:description" content="TC内部对视频上下行延时、抖动、丢包如何更新，上层又怎么获取到这些统计信息的。对应的WebRTC版本：63。 二、背景 最近在内网情况下测试视频会议，视频下行延时很大，很多时候超过100ms。另外，视频的上下行抖动总是稳定在30~40ms这个区间。这些统计在内网环境下是不正常的，于是决定看看是哪里导致这些问题的。 在解决这些问题的过程中，也对WebRTC内部视频统计数据做了一次梳理。 阅读这篇文章">
+<meta name="twitter:title" content="详读webrtc的视频统计信息之延迟、抖动与丢包">
+<meta name="twitter:description" content="一、前言 这篇文章主要想说明的是WebRTC内部对视频上下行延时、抖动、丢包如何更新，上层又怎么获取到这些统计信息的。对应的WebRTC版本：63。  二、背景 最近在内网情况下测试视频会议，视频下行延时很大，很多时候超过100ms。另外，视频的上下行抖动总是稳定在30~40ms这个区间。这些统计在内网环境下是不正常的，于是决定看看是哪里导致这些问题的。 在解决这些问题的过程中，也对WebRTC内">
 <meta name="twitter:image" content="http://tuchuang.servercoder.com/webrtc-statistics.png">
 
 
@@ -150,7 +150,7 @@
   };
 </script>
 
-  <title> | 后台服务开发</title>
+  <title>详读webrtc的视频统计信息之延迟、抖动与丢包 | 后台服务开发</title>
   
 
 
@@ -332,7 +332,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h1 class="post-title" itemprop="name headline">详读webrtc的视频统计信息之延迟、抖动与丢包
 
               
             
@@ -358,9 +358,13 @@
                 
               
 
-              <time title="Created: 2019-04-24 12:01:04" itemprop="dateCreated datePublished" datetime="2019-04-24T12:01:04+08:00">2019-04-24</time>
+              <time title="Created: 2019-04-24 12:01:04 / Modified: 12:03:27" itemprop="dateCreated datePublished" datetime="2019-04-24T12:01:04+08:00">2019-04-24</time>
             
 
+            
+              
+
+              
             
           </span>
 
@@ -413,7 +417,9 @@
       
 
       
-        <p>TC内部对视频<code>上下行延时、抖动、丢包</code>如何更新，上层又怎么获取到这些统计信息的。对应的<code>WebRTC版本：63</code>。</p>
+        <h2 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h2><blockquote>
+<p>这篇文章主要想说明的是WebRTC内部对视频<code>上下行延时、抖动、丢包</code>如何更新，上层又怎么获取到这些统计信息的。对应的<code>WebRTC版本：63</code>。</p>
+</blockquote>
 <h2 id="二、背景"><a href="#二、背景" class="headerlink" title="二、背景"></a>二、背景</h2><blockquote>
 <p>最近在内网情况下测试视频会议，视频下行延时很大，很多时候超过<code>100ms</code>。另外，视频的上下行抖动总是稳定在<code>30~40ms</code>这个区间。这些统计在内网环境下是不正常的，于是决定看看是哪里导致这些问题的。</p>
 <p>在解决这些问题的过程中，也对WebRTC内部视频统计数据做了一次梳理。</p>
@@ -710,7 +716,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#二、背景"><span class="nav-number">1.</span> <span class="nav-text">二、背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、综述"><span class="nav-number">2.</span> <span class="nav-text">三、综述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-如何取"><span class="nav-number">2.1.</span> <span class="nav-text">1. 如何取</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-如何更新"><span class="nav-number">2.2.</span> <span class="nav-text">2. 如何更新</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、几个统计信息详细介绍"><span class="nav-number">3.</span> <span class="nav-text">四、几个统计信息详细介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、延时"><span class="nav-number">3.1.</span> <span class="nav-text">1、延时</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-延时的计算"><span class="nav-number">3.1.1.</span> <span class="nav-text">(1) 延时的计算</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-SR和RR报文格式"><span class="nav-number">3.1.1.1.</span> <span class="nav-text">1) SR和RR报文格式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-计算rtt"><span class="nav-number">3.1.1.2.</span> <span class="nav-text">2) 计算rtt</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-用一个图描述上述RTT计算流程"><span class="nav-number">3.1.1.3.</span> <span class="nav-text">3) 用一个图描述上述RTT计算流程</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-延时的更新流程"><span class="nav-number">3.1.2.</span> <span class="nav-text">(2) 延时的更新流程</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-rtt统计第一阶段"><span class="nav-number">3.1.2.1.</span> <span class="nav-text">1) rtt统计第一阶段</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-rtt统计第二阶段"><span class="nav-number">3.1.2.2.</span> <span class="nav-text">2) rtt统计第二阶段</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-rtt统计第三阶段"><span class="nav-number">3.1.2.3.</span> <span class="nav-text">3) rtt统计第三阶段</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-获取延时"><span class="nav-number">3.1.3.</span> <span class="nav-text">(3) 获取延时</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、下行抖动和丢包"><span class="nav-number">3.2.</span> <span class="nav-text">2、下行抖动和丢包</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-抖动和丢包的计算"><span class="nav-number">3.2.1.</span> <span class="nav-text">(1) 抖动和丢包的计算</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-抖动定义"><span class="nav-number">3.2.1.1.</span> <span class="nav-text">1) 抖动定义</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-抖动计算存在的问题："><span class="nav-number">3.2.1.2.</span> <span class="nav-text">2) 抖动计算存在的问题：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-如何正确计算抖动："><span class="nav-number">3.2.1.3.</span> <span class="nav-text">3) 如何正确计算抖动：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-下行抖动的更新流程"><span class="nav-number">3.2.2.</span> <span class="nav-text">(2) 下行抖动的更新流程</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-抖动统计第一阶段"><span class="nav-number">3.2.2.1.</span> <span class="nav-text">1) 抖动统计第一阶段</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-抖动统计第二阶段"><span class="nav-number">3.2.2.2.</span> <span class="nav-text">2) 抖动统计第二阶段</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-下行丢包的更新流程"><span class="nav-number">3.2.3.</span> <span class="nav-text">(3) 下行丢包的更新流程</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-丢包统计第一阶段"><span class="nav-number">3.2.3.1.</span> <span class="nav-text">1) 丢包统计第一阶段</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-丢包统计第二阶段"><span class="nav-number">3.2.3.2.</span> <span class="nav-text">2) 丢包统计第二阶段</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-获取下行抖动和丢包"><span class="nav-number">3.2.4.</span> <span class="nav-text">(3) 获取下行抖动和丢包</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、上行抖动和丢包"><span class="nav-number">3.3.</span> <span class="nav-text">3、上行抖动和丢包</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-上行抖动和丢包的更新流程"><span class="nav-number">3.3.1.</span> <span class="nav-text">(1) 上行抖动和丢包的更新流程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-获取上行抖动和丢包"><span class="nav-number">3.3.2.</span> <span class="nav-text">(2) 获取上行抖动和丢包</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五、最后"><span class="nav-number">4.</span> <span class="nav-text">五、最后</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、前言"><span class="nav-number">1.</span> <span class="nav-text">一、前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、背景"><span class="nav-number">2.</span> <span class="nav-text">二、背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、综述"><span class="nav-number">3.</span> <span class="nav-text">三、综述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-如何取"><span class="nav-number">3.1.</span> <span class="nav-text">1. 如何取</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-如何更新"><span class="nav-number">3.2.</span> <span class="nav-text">2. 如何更新</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、几个统计信息详细介绍"><span class="nav-number">4.</span> <span class="nav-text">四、几个统计信息详细介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、延时"><span class="nav-number">4.1.</span> <span class="nav-text">1、延时</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-延时的计算"><span class="nav-number">4.1.1.</span> <span class="nav-text">(1) 延时的计算</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-SR和RR报文格式"><span class="nav-number">4.1.1.1.</span> <span class="nav-text">1) SR和RR报文格式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-计算rtt"><span class="nav-number">4.1.1.2.</span> <span class="nav-text">2) 计算rtt</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-用一个图描述上述RTT计算流程"><span class="nav-number">4.1.1.3.</span> <span class="nav-text">3) 用一个图描述上述RTT计算流程</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-延时的更新流程"><span class="nav-number">4.1.2.</span> <span class="nav-text">(2) 延时的更新流程</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-rtt统计第一阶段"><span class="nav-number">4.1.2.1.</span> <span class="nav-text">1) rtt统计第一阶段</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-rtt统计第二阶段"><span class="nav-number">4.1.2.2.</span> <span class="nav-text">2) rtt统计第二阶段</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-rtt统计第三阶段"><span class="nav-number">4.1.2.3.</span> <span class="nav-text">3) rtt统计第三阶段</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-获取延时"><span class="nav-number">4.1.3.</span> <span class="nav-text">(3) 获取延时</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、下行抖动和丢包"><span class="nav-number">4.2.</span> <span class="nav-text">2、下行抖动和丢包</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-抖动和丢包的计算"><span class="nav-number">4.2.1.</span> <span class="nav-text">(1) 抖动和丢包的计算</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-抖动定义"><span class="nav-number">4.2.1.1.</span> <span class="nav-text">1) 抖动定义</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-抖动计算存在的问题："><span class="nav-number">4.2.1.2.</span> <span class="nav-text">2) 抖动计算存在的问题：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-如何正确计算抖动："><span class="nav-number">4.2.1.3.</span> <span class="nav-text">3) 如何正确计算抖动：</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-下行抖动的更新流程"><span class="nav-number">4.2.2.</span> <span class="nav-text">(2) 下行抖动的更新流程</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-抖动统计第一阶段"><span class="nav-number">4.2.2.1.</span> <span class="nav-text">1) 抖动统计第一阶段</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-抖动统计第二阶段"><span class="nav-number">4.2.2.2.</span> <span class="nav-text">2) 抖动统计第二阶段</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-下行丢包的更新流程"><span class="nav-number">4.2.3.</span> <span class="nav-text">(3) 下行丢包的更新流程</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-丢包统计第一阶段"><span class="nav-number">4.2.3.1.</span> <span class="nav-text">1) 丢包统计第一阶段</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-丢包统计第二阶段"><span class="nav-number">4.2.3.2.</span> <span class="nav-text">2) 丢包统计第二阶段</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-获取下行抖动和丢包"><span class="nav-number">4.2.4.</span> <span class="nav-text">(3) 获取下行抖动和丢包</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、上行抖动和丢包"><span class="nav-number">4.3.</span> <span class="nav-text">3、上行抖动和丢包</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-上行抖动和丢包的更新流程"><span class="nav-number">4.3.1.</span> <span class="nav-text">(1) 上行抖动和丢包的更新流程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-获取上行抖动和丢包"><span class="nav-number">4.3.2.</span> <span class="nav-text">(2) 获取上行抖动和丢包</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五、最后"><span class="nav-number">5.</span> <span class="nav-text">五、最后</span></a></li></ol></div>
             
 
           </div>
@@ -894,7 +900,7 @@
   var disqus_config = function() {
     this.page.url = "http://www.servercoder.com/2019/04/24/webrtc-statistics/";
     this.page.identifier = "2019/04/24/webrtc-statistics/";
-    this.page.title = '';
+    this.page.title = '详读webrtc的视频统计信息之延迟、抖动与丢包';
     };
   function loadComments() {
     var d = document, s = d.createElement('script');
